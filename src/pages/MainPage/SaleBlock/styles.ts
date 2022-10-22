@@ -13,12 +13,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Container = styled.div`
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  //justify-content: center;
-
-  padding: 180px;
+  padding: 0 120px 150px 120px;
 `;
 
 export const ContainerTitle = styled.h3`

@@ -1,0 +1,39 @@
+.sale-swiper {
+    padding: 0 35px;
+}
+
+.sale-swiper .swiper-button-next {
+    background: #FFFFFF;
+
+    color: #000F08;
+
+    border: 1px solid rgb(0, 0, 0, .3);
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+    padding: 12px 24px;
+
+    right: 2px;
+}
+
+.sale-swiper .swiper-button-prev {
+    background: #FFFFFF;
+
+    color: #000F08;
+
+    border: 1px solid rgb(0, 0, 0, .3);
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+
+    padding: 12px 24px;
+
+    left: 2px;
+}
+
+.sale-swiper .swiper-button-next:after {
+    margin-left: 6px;
+}
+
+.sale-swiper .swiper-button-prev:after {
+    margin-right: 6px;
+}

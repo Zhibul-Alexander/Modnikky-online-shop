@@ -11,7 +11,8 @@ import ProductCard from '../../../components/ProductCard/ProductCard';
 import Catalog from '../../../types/api/catalog';
 import API from '../../../api';
 
-import {Wrapper, Container, ContainerContent, ContainerTitle} from './styles';
+import {Wrapper, Container, ContainerTitle} from './styles';
+import './index.css';
 
 const SaleBlock = () => {
 
@@ -35,10 +36,10 @@ const SaleBlock = () => {
     <>
       <Wrapper>
         <Container>
-          <ContainerTitle>#MODNIKKY_Sale</ContainerTitle>
+          <ContainerTitle className="main-page-title">#MODNIKKY_<b>Sale</b></ContainerTitle>
           <Swiper
             slidesPerView={3}
-            spaceBetween={30}
+            spaceBetween={37}
             slidesPerGroup={3}
             initialSlide={3}
             loop={true}
@@ -53,12 +54,6 @@ const SaleBlock = () => {
               </SwiperSlide>
             ))}
           </Swiper>
-          {/*<ContainerContent>*/}
-          {/*  */}
-          {/*  {saleCards.map(({images, price, id}) => (*/}
-          {/*    <ProductCard images={images[0]} price={price} id={id} key={id}/>*/}
-          {/*  ))}*/}
-          {/*</ContainerContent>*/}
         </Container>
       </Wrapper>
     </>

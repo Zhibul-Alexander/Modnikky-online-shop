@@ -2,9 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 import API from '../../../api/index';
 
-import Catalog from '../../../types/api/catalog';
-
-import {Container, ContainerContent, ContainerTitle, ContentCategory, TypeLink, Wrapper} from './styles';
+import {Container, ContainerContent, ContainerTitle, ContentCategory, Wrapper} from './styles';
 
 const CategoryBlock = () => {
   const [category, setCategory] = useState<string[]>([]);
@@ -25,7 +23,6 @@ const CategoryBlock = () => {
     setCategory(filteredArray);
   };
 
-
   useEffect(() => {
     getData().catch(console.error);
   }, []);
@@ -34,13 +31,12 @@ const CategoryBlock = () => {
     <>
       <Wrapper>
         <Container>
-          <ContainerTitle>Shop by the Category</ContainerTitle>
+          <ContainerTitle className="main-page-title">Shop by the <b>Category</b></ContainerTitle>
           <ContainerContent>
             {category.map((type, index) => (
-              <ContentCategory key={index} className="category-block-items">
-                <TypeLink to={`/categories/${type.toLowerCase()}`} className="category-block-items-link">
-                  {type}
-                </TypeLink>
+              <ContentCategory key={index} className="category-block-link"
+                to={`/categories/${type.toLowerCase()}`}>
+                {type}
               </ContentCategory>
             ))}
           </ContainerContent>

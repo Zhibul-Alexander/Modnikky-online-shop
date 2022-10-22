@@ -18,7 +18,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  padding: 180px;
+  padding: 150px;
 `;
 
 export const ContainerTitle = styled.h3`
@@ -28,15 +28,14 @@ export const ContainerTitle = styled.h3`
 export const ContainerContent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   width: 100%;
 `;
 
-export const ContentCategory = styled.div`
+export const ContentCategory = styled(Link)`
   padding: 40px 50px;
-`;
+  margin: 0 30px;
 
-export const TypeLink = styled(Link)`
   text-decoration: none;
 `;
