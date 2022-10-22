@@ -1,0 +1,35 @@
+@import "variables";
+
+.header-li {
+  font-family: $primary-font;
+  font-weight: font-weight('regular');
+  font-style: normal;
+
+  font-size: 24px;
+  line-height: 20px;
+}
+
+.header-logo {
+  font-family: $primary-font;
+  font-weight: font-weight('bold');
+  font-style: normal;
+
+  font-size: 70px;
+  line-height: 70px;
+}
+
+.category-block-items {
+  background: $light-purple;
+}
+
+.category-block-items-link {
+  color: $black-1;
+}
+
+.category-block-items-link:hover {
+  color: $black-1;
+}
+
+.card-sale-price {
+  color: $sale-1;
+}

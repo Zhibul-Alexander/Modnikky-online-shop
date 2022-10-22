@@ -1,0 +1,1 @@
+export {useScreenSizeHook} from './useScreenSizeHook';

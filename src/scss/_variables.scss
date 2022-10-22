@@ -1,0 +1,33 @@
+// Colours
+$white-1: #FFFFFF;
+$black-1: #000F08;
+$black-2: #000000;
+$sale-1: #D7302D;
+$gray-1: #8C8C8C;
+$light-purple: #EDE7F0;
+
+// Font
+$primary-font: "Helvetica Neue LT Std";
+$secondary-font: "Roboto";
+
+// Font weights
+$font-weights: (
+        "light": 300,
+        "regular": 400,
+        "medium": 500,
+        "bold": 700,
+);
+@function font-weight($weight-name) {
+  @return map-get($font-weights, $weight-name);
+}
+
+// Font size
+
+
+$font-size-text-xs: 10px;
+$font-size-text-sm: 16px;
+$font-size-text-md: 22px;
+$font-size-text-lg: 30px;
+$font-size-text-xl: 36px;
+$font-size-text-xxl: 42px;
+

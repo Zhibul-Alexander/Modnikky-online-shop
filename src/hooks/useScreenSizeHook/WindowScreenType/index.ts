@@ -1,0 +1,1 @@
+export {WindowScreenType} from './WindowScreenType';
