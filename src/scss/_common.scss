@@ -16,6 +16,9 @@
 
   font-size: 70px;
   line-height: 70px;
+
+  color: $white-1;
+  text-decoration: none;
 }
 
 .category-block-items {
@@ -32,4 +35,32 @@
 
 .card-sale-price {
   color: $sale-1;
+}
+
+.border-1 {
+  border: 2px solid $white-1;
+}
+
+.welcome-title {
+  font-family: $primary-font;
+  font-weight: font-weight('bold');
+  font-style: normal;
+
+  font-size: 60px;
+  line-height: 64px;
+
+  color: $white-1;
+  text-decoration: none;
+}
+
+.welcome-text {
+  font-family: $secondary-font;
+  font-weight: font-weight('regular');
+  font-style: normal;
+
+  font-size: 32px;
+  line-height: 48px;
+
+  color: $white-1;
+  text-decoration: none;
 }

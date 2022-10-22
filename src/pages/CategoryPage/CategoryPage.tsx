@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 
-import SaleCard from '../MainPage/SaleBlock/SaleCard/SaleCard';
+import ProductCard from '../../components/ProductCard/ProductCard';
 
 import API from '../../api';
 import Catalog from '../../types/api/catalog';
@@ -45,7 +45,7 @@ const CategoryPage = () => {
       CategoryPage
       <GridContainer>
         {saleCards.map(({images, price, id}) => (
-          <SaleCard images={images[1]} price={price} id={id} key={id}/>
+          <ProductCard images={images[1]} price={price} id={id} key={id}/>
         ))}
       </GridContainer>
     </Wrapper>

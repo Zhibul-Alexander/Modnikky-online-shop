@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-import SaleCard from './SaleCard/SaleCard';
+import ProductCard from '../../../components/ProductCard/ProductCard';
 
 import Catalog from '../../../types/api/catalog';
 import API from '../../../api';
@@ -49,14 +49,14 @@ const SaleBlock = () => {
           >
             {saleCards.map(({images, price, id}) => (
               <SwiperSlide key={id}>
-                <SaleCard images={images[0]} price={price} id={id} key={id}/>
+                <ProductCard images={images[0]} price={price} id={id} key={id} visibleCardPrice={false}/>
               </SwiperSlide>
             ))}
           </Swiper>
           {/*<ContainerContent>*/}
           {/*  */}
           {/*  {saleCards.map(({images, price, id}) => (*/}
-          {/*    <SaleCard images={images[0]} price={price} id={id} key={id}/>*/}
+          {/*    <ProductCard images={images[0]} price={price} id={id} key={id}/>*/}
           {/*  ))}*/}
           {/*</ContainerContent>*/}
         </Container>

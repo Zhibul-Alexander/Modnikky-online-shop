@@ -5,26 +5,18 @@ import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/Windo
 
 import {
   Content,
-  HeaderLi,
+  HeaderLi, HeaderLink,
   HeaderUl,
   Wrapper,
 } from './styles';
 
 const Header = () => {
-  let {width = 320, screenType} = window;
-
   const [open, setOpen] = useState<boolean>(false);
 
   return (
     <Headroom>
       <Wrapper open={open}>
-        <Content
-          height={
-            screenType === SCREEN_TYPES.DESKTOP
-              ? 112
-              : 100
-          }
-        >
+        <Content>
           <HeaderUl>
             <HeaderLi marginRight={80} className="header-li">
               New arrivals
@@ -40,8 +32,8 @@ const Header = () => {
           </HeaderUl>
 
           <HeaderUl>
-            <HeaderLi className="header-logo ">
-              Modnikky
+            <HeaderLi>
+              <HeaderLink to="/home" className="header-logo"> Modnikky</HeaderLink>
             </HeaderLi>
           </HeaderUl>
 

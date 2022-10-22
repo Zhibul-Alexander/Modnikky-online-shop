@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
-import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
-
 export const Wrapper = styled.div<{
   open: boolean;
 }>`
@@ -15,29 +13,28 @@ export const Wrapper = styled.div<{
 
   margin: 0 auto;
   padding: 0 20px;
+  box-sizing: border-box;
 
   background: linear-gradient(180deg,
-  rgba(0, 0, 0, 0.75) 0%,
-  rgba(0, 0, 0, 0.7) 10%,
-  rgba(0, 0, 0, 0.65) 20%,
-  rgba(0, 0, 0, 0.6) 30%,
-  rgba(0, 0, 0, 0.55) 40%,
-  rgba(0, 0, 0, 0.5) 50%,
-  rgba(0, 0, 0, 0.4) 60%,
-  rgba(0, 0, 0, 0.3) 70%,
-  rgba(0, 0, 0, 0.2) 80%,
-  rgba(0, 0, 0, 0.1) 90%,
+  rgba(0, 0, 0, 0.5) 0%,
+  rgba(0, 0, 0, 0.45) 10%,
+  rgba(0, 0, 0, 0.4) 20%,
+  rgba(0, 0, 0, 0.35) 30%,
+  rgba(0, 0, 0, 0.3) 40%,
+  rgba(0, 0, 0, 0.25) 50%,
+  rgba(0, 0, 0, 0.2) 60%,
+  rgba(0, 0, 0, 0.15) 70%,
+  rgba(0, 0, 0, 0.1) 80%,
+  rgba(0, 0, 0, 0.05) 90%,
   rgba(0, 0, 0, 0) 100%);
 
   overflow: hidden;
 `;
 
-export const Content = styled.header<{
-  height: number;
-}>`
+export const Content = styled.header`
   position: relative;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 
   display: flex;
   align-items: center;
@@ -49,7 +46,7 @@ export const Content = styled.header<{
   text-transform: uppercase;
   box-sizing: border-box;
 
-  height: ${(props) => props.height}px;
+  height: 110px
 `;
 
 export const HeaderUl = styled.ul`
@@ -61,8 +58,6 @@ export const HeaderUl = styled.ul`
 
   padding: 0;
   margin: 0;
-
-
 `;
 
 export const HeaderLi = styled.li<{
@@ -74,6 +69,11 @@ export const HeaderLi = styled.li<{
   text-transform: uppercase;
 
   cursor: pointer;
+`;
+
+export const HeaderLink = styled(Link)`
+  width: 100%;
+  height: 100%;
 `;
 
 export const HeaderNavigationBarLIMedium = styled.li<{

@@ -22,7 +22,7 @@ export const Container = styled.div`
 `;
 
 export const ContainerTitle = styled.h3`
-  margin-bottom: 160px;
+  margin: 0 0 160px 0;
 `;
 
 export const ContainerContent = styled.div`

@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
+import ScrollToTop from './utils/ScrollToTop/ScrollToTop';
 import Loader from './components/Loader/Loader';
 import DefaultLayout from './components/Layout/DefaultLayout';
 
@@ -34,6 +35,7 @@ function App() {
   return (
     <>
       <Router>
+        <ScrollToTop/>
         <React.Suspense fallback={loading}>
           <Routes>
             <Route path="*" element={<DefaultLayout/>}/>
