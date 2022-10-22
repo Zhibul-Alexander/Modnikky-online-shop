@@ -11,24 +11,9 @@ export const Wrapper = styled.div`
   width: 100%;
 `;
 
-export const ProductContainer = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  max-height: 1600px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 export const GridContainer = styled.div`
   display: grid;
-  grid-template: 100vh / 1fr 1fr 0.8fr;
+  grid-template: 1fr / 1fr 1fr 0.8fr;
   gap: 0;
 
   border: none;
