@@ -15,10 +15,10 @@ export interface IRoute {
 
 enum RouteNames {
   MAIN_PAGE = '/home',
-  PRODUCT = '/product/:id',
+  PRODUCT = '/product/:productId',
   BAG = '/bag',
   LOGIN = '/login',
-  CATEGORY_PAGE = '/categories/:category'
+  CATEGORY_PAGE = '/categories/:category',
 }
 
 export const publicRoutes: IRoute[] = [

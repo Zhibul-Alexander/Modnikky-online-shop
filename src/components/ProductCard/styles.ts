@@ -18,10 +18,15 @@ export const WrapperCard = styled.div`
   max-height: 890px;
 `;
 
-export const CardImg = styled.img`
+export const CardLink = styled(Link)`
   max-width: 600px;
   max-height: 800px;
 
+  width: 100%;
+  height: 100%;
+`;
+
+export const CardImg = styled.img`
   width: 100%;
   height: 100%;
 `;

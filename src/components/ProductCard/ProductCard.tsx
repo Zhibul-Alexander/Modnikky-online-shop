@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {CardImg, CardPrice, CardPriceContainer, CardSalePrice, WrapperCard} from './styles';
+import {CardImg, CardLink, CardPrice, CardPriceContainer, CardSalePrice, WrapperCard} from './styles';
 
 interface IPrice {
   currency: string;
@@ -14,10 +14,13 @@ interface ISaleCard {
   visibleCardPrice?: boolean;
 }
 
+
 const ProductCard = ({images, price, id, visibleCardPrice = true}: ISaleCard) => {
   return (
     <WrapperCard key={id}>
-      <CardImg src={images}/>
+      <CardLink to={`/product/${id}`}>
+        <CardImg src={images}/>
+      </CardLink>
       <CardPriceContainer>
         {visibleCardPrice ?
           <>

@@ -39,8 +39,7 @@
     ],
     "linebreak-style": "off",
     "quotes": [
-      "error",
-      "single"
+      "off"
     ],
     "no-dupe-keys": "off"
   }
