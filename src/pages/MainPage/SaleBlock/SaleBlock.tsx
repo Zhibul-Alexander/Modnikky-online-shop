@@ -40,15 +40,27 @@ const SaleBlock = () => {
             {width > 500 ? <>#MODNIKKY_<b>Sale</b></> : <>#MODNIKKY_<br/><b>Sale</b></>}
           </ContainerTitle>
           <Swiper
-            slidesPerView={width > 1000 ? 3 : (width > 850 ? 2 : 1)}
+            slidesPerView={1}
             spaceBetween={37}
-            slidesPerGroup={width > 1000 ? 3 : (width > 850 ? 2 : 1)}
-            initialSlide={width > 1000 ? 3 : (width > 850 ? 2 : 1)}
+            slidesPerGroup={1}
+            initialSlide={1}
             loop={true}
             loopFillGroupWithBlank={true}
             navigation={true}
             modules={[Navigation]}
             className="sale-swiper"
+            breakpoints={{
+              850: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+                initialSlide: 2,
+              },
+              1000: {
+                slidesPerView: 3,
+                slidesPerGroup: 3,
+                initialSlide: 3,
+              },
+            }}
           >
             {saleCards.map(({images, price, id}) => (
               <SwiperSlide key={id}>

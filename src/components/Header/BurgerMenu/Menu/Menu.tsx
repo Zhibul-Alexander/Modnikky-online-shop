@@ -31,40 +31,34 @@ export const Menu = ({open, setOpen}: IMenu) => {
         open={open}
       >
         <MenuLink
-          to="/about"
+          to="/home"
           onClick={() => close()}
         >
-          About
+          Home
         </MenuLink>
         <MenuLink
-          to="/gallery"
+          to="/home"
           onClick={() => close()}
         >
-          Gallery
+          New arrivals
         </MenuLink>
         <MenuLink
-          to="/news"
+          to="/home"
           onClick={() => close()}
         >
-          News
+          Shop
         </MenuLink>
         <MenuLink
-          to="/team"
+          to="/home"
           onClick={() => close()}
         >
-          Team
+          Collections
         </MenuLink>
         <MenuLink
-          to="/partners"
+          to="/home"
           onClick={() => close()}
         >
-          Partners
-        </MenuLink>
-        <MenuLink
-          to="/contacts"
-          onClick={() => close()}
-        >
-          Contacts
+          Sign in
         </MenuLink>
       </VerticalBurgerMenu>
       <Burger open={open} setOpen={setOpen}/>

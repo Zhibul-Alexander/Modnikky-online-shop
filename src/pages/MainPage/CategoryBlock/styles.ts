@@ -59,6 +59,9 @@ export const ContainerContent = styled.div`
 
 export const ContentCategory = styled(Link)`
   padding: 40px 50px;
+  box-sizing: border-box;
+
+  text-align: center;
 
   text-decoration: none;
 
@@ -72,5 +75,7 @@ export const ContentCategory = styled(Link)`
 
   @media (max-width: 800px) {
     margin-bottom: 20px;
+
+    width: 180px;
   }
 `;
