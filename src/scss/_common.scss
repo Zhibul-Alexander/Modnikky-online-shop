@@ -109,7 +109,7 @@
 
 .footer-title {
   font-family: $secondary-font;
-  font-weight: font-weight('regular');
+  font-weight: font-weight('bold');
   font-style: normal;
   letter-spacing: 0.04em;
 
@@ -131,4 +131,45 @@
 
   color: $black-1;
   text-decoration: none;
+}
+
+
+@media (max-width: 1600px) {
+  .header-li {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .header-logo, .welcome-title, .main-page-title {
+    font-size: 44px;
+    line-height: 48px;
+  }
+
+  //.welcome-title {
+  //  font-size: 44px;
+  //  line-height: 48px;
+  //}
+  .welcome-text, .category-block-link, .footer-text {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  //.main-page-title {
+  //  font-size: 44px;
+  //  line-height: 48px;
+  //}
+  //.category-block-link {
+  //  font-size: 22px;
+  //  line-height: 26px;
+  //}
+
+  .footer-title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+
+  //.footer-text {
+  //  font-size: 22px;
+  //  line-height: 26px;
+  //}
+
 }

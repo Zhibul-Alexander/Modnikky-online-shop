@@ -1,5 +1,7 @@
 .sale-swiper {
     padding: 0 35px;
+    
+    z-index: 0;
 }
 
 .sale-swiper .swiper-button-next {
@@ -13,6 +15,7 @@
 
     padding: 12px 24px;
 
+    top: 44%;
     right: 2px;
 }
 
@@ -27,6 +30,7 @@
 
     padding: 12px 24px;
 
+    top: 44%;
     left: 2px;
 }
 
@@ -36,4 +40,20 @@
 
 .sale-swiper .swiper-button-prev:after {
     margin-right: 6px;
+}
+
+@media (max-width: 550px) {
+    .sale-swiper .swiper-button-prev {
+        padding: 12px 18px;
+
+        top: 44%;
+        left: 4px;
+    }
+
+    .sale-swiper .swiper-button-next {
+        padding: 12px 18px;
+
+        top: 44%;
+        right: 4px;
+    }
 }

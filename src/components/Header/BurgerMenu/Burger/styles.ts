@@ -6,8 +6,8 @@ export const BurgerContainer = styled.button<{
   height: number;
 }>`
   position: absolute;
-  right: ${({open}) => (open ? '32%' : '0px')};
-  top: 20px;
+  left: ${({open}) => (open ? '32%' : '0px')};
+  top: 38px;
   width: ${(props) => props.width}px;
   height: ${(props) => props.height}px;
   padding: 0;
@@ -23,8 +23,8 @@ export const BurgerContainer = styled.button<{
   z-index: 1;
 
   @media (max-width: 600px) {
-    right: ${({open}) => (open ? 'initial' : '0px')};
-    left: ${({open}) => (open ? '0px' : 'initial')};
+    left: ${({open}) => (open ? 'initial' : '0px')};
+    right: ${({open}) => (open ? '0px' : 'initial')};
   }
 `;
 
@@ -41,18 +41,18 @@ export const BurgerDiv = styled.div<{
 
   :first-child {
     transform: ${({open, transform}) =>
-    open
-      ? `translateY(${transform}px) rotate(45deg)`
-      : 'translateY(0px) rotate(0)'};
+            open
+                    ? `translateY(${transform}px) rotate(45deg)`
+                    : 'translateY(0px) rotate(0)'};
   }
 
   :nth-child(2) {
     opacity: ${({open}) => (open ? '0' : '1')};
-    transform: ${({open}) => (open ? 'translateX(20px)' : 'translateX(0)')};
+    transform: ${({open}) => (open ? 'translateX(30px)' : 'translateX(0)')};
   }
 
   :nth-child(3) {
     transform: ${({open}) =>
-    open ? 'translateY(-6px) rotate(-45deg)' : 'translateY(0px) rotate(0)'};
+            open ? 'translateY(-9px) rotate(-45deg)' : 'translateY(0px) rotate(0)'};
   }
 `;

@@ -28,21 +28,19 @@ const CategoryBlock = () => {
   }, []);
 
   return (
-    <>
-      <Wrapper>
-        <Container>
-          <ContainerTitle className="main-page-title">Shop by the <b>Category</b></ContainerTitle>
-          <ContainerContent>
-            {category.map((type, index) => (
-              <ContentCategory key={index} className="category-block-link"
-                to={`/categories/${type.toLowerCase()}`}>
-                {type}
-              </ContentCategory>
-            ))}
-          </ContainerContent>
-        </Container>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Container>
+        <ContainerTitle className="main-page-title">Shop by the <b>Category</b></ContainerTitle>
+        <ContainerContent>
+          {category.map((type, index) => (
+            <ContentCategory key={index} className="category-block-link"
+                             to={`/categories/${type.toLowerCase()}`}>
+              {type}
+            </ContentCategory>
+          ))}
+        </ContainerContent>
+      </Container>
+    </Wrapper>
   );
 };
 

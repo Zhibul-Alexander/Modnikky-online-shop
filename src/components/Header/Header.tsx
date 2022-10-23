@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import Headroom from 'react-headroom';
 
+import {Menu} from './BurgerMenu/index';
 import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
 
 import {
@@ -8,21 +9,23 @@ import {
   HeaderLi, HeaderLink,
   HeaderUl,
   Wrapper,
+  HeaderBurgerMenu,
 } from './styles';
 
 const Header = () => {
+  const {height = 600, width = 320, screenType} = window;
+
   const [open, setOpen] = useState<boolean>(false);
 
   return (
     <Headroom>
       <Wrapper open={open}>
         <Content>
-          <HeaderUl>
-            <HeaderLi marginRight={80} className="header-li">
+          <HeaderUl screenType={screenType} displayWidth={width} width={width > 1600 ? 620 : 445} height={height}>
+            <HeaderLi marginRight={10} className="header-li">
               New arrivals
             </HeaderLi>
-
-            <HeaderLi marginRight={80} className="header-li">
+            <HeaderLi marginRight={10} className="header-li">
               Shop
             </HeaderLi>
 
@@ -31,26 +34,30 @@ const Header = () => {
             </HeaderLi>
           </HeaderUl>
 
-          <HeaderUl>
+          <HeaderUl screenType={screenType} margin={'0 40px'} displayWidth={width} width={width} height={height}
+                    style={{width: 'auto'}}>
             <HeaderLi>
               <HeaderLink to="/home" className="header-logo"> Modnikky</HeaderLink>
             </HeaderLi>
           </HeaderUl>
-
-          <HeaderUl>
-            <HeaderLi marginRight={80} className="header-li">
+          <HeaderUl screenType={screenType} displayWidth={width} width={width > 1600 ? 550 : 395} height={height}>
+            <HeaderLi marginRight={10} className="header-li">
               Search
             </HeaderLi>
-            <HeaderLi marginRight={80} className="header-li">
+            <HeaderLi marginRight={10} className="header-li">
               Sign in
             </HeaderLi>
-            <HeaderLi marginRight={80} className="header-li">
+            <HeaderLi marginRight={10} className="header-li">
               Bag
             </HeaderLi>
             <HeaderLi>
               Like
             </HeaderLi>
           </HeaderUl>
+
+          <HeaderBurgerMenu screenType={screenType} width={width} height={height}>
+            <Menu open={open} setOpen={setOpen}/>
+          </HeaderBurgerMenu>
 
         </Content>
       </Wrapper>

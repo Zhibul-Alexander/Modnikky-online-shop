@@ -44,9 +44,9 @@ export const CardPriceContainer = styled.div`
 export const CardPrice = styled.p`
   text-decoration: line-through;
 
-  margin-right: 20px;
+  margin: 20px 20px 0 0;
 `;
 
 export const CardSalePrice = styled.p`
-
+  margin: 20px 20px 0 0;
 `;

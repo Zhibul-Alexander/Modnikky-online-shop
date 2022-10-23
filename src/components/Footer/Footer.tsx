@@ -49,9 +49,10 @@ const Footer = () => {
 
         <GridColumn className="fifth" style={{gridArea: 'fifth', justifySelf: 'center', alignItems: 'center'}}>
           <GridColumnTitle className="footer-title" style={{marginBottom: '20px'}}>SIGN UP FOR UPDATES</GridColumnTitle>
-          <GridColumnText className="footer-text" style={{marginBottom: '80px'}}>
+          <GridColumnText className="footer-text" marginBottom={80}>
             Sign up for exclusive early sale access and tailored new arrivals.
           </GridColumnText>
+
           <GridInputContainer className="footer-title">
             <GridInput placeholder="Your email address"/>
             <GridButton>JOIN</GridButton>

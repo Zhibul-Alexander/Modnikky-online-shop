@@ -38,6 +38,7 @@ function App() {
         <ScrollToTop/>
         <React.Suspense fallback={loading}>
           <Routes>
+
             <Route path="*" element={<DefaultLayout/>}/>
           </Routes>
         </React.Suspense>

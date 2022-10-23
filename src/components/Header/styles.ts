@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
+import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
+
 export const Wrapper = styled.div<{
   open: boolean;
 }>`
+  position: ${(props) => (props.open ? 'fixed' : 'relative')};
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
   max-width: 2880px;
   min-width: 320px;
 
@@ -32,13 +40,13 @@ export const Wrapper = styled.div<{
 `;
 
 export const Content = styled.header`
-  position: relative;
-  top: 0;
-  left: 0;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
+  top: 0;
+  left: 0;
 
   font-style: normal;
   font-weight: 700;
@@ -49,21 +57,24 @@ export const Content = styled.header`
   height: 110px
 `;
 
-export const HeaderUl = styled.ul`
-  display: flex;
+export const HeaderUl = styled.ul<{ width: number, height: number, margin?: string, screenType: SCREEN_TYPES, displayWidth: number }>`
+  width: ${({width}) => width}px;
+  margin: ${({margin = '0'}) => margin};
+
+  display: ${(props) => {
+    return props.screenType === SCREEN_TYPES.MOBILE || (props.displayWidth < 1200 && props.height > 600) ? 'none' : 'flex';
+  }};
+
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
   list-style: none;
 
   padding: 0;
-  margin: 0;
 `;
 
-export const HeaderLi = styled.li<{
-  marginRight?: number;
-}>`
-  margin-right: ${(props) => props.marginRight}px;
+export const HeaderLi = styled.li<{ marginRight?: number }>`
+  margin-right: ${({marginRight}) => marginRight}px;
 
   text-decoration: none;
   text-transform: uppercase;
@@ -165,9 +176,6 @@ export const HeaderNavigationBarAuth = styled.div<{
 }>`
   pointer-events: visible;
 
-  // display: {(props) => {
-  //   return props.screenType === SCREEN_TYPES.MOBILE ? 'none' : 'flex';
-  // }};
   align-items: center;
   justify-content: center;
 
@@ -220,10 +228,12 @@ export const HeaderNavigationBarAuthLink = styled(Link)`
   }
 `;
 
-export const HeaderBurgerMenu = styled.div`
+export const HeaderBurgerMenu = styled.div<{ screenType: SCREEN_TYPES, width: number, height: number }>`
   pointer-events: visible;
 
-  // display: {(props) => {
-  //   return props.screenType === SCREEN_TYPES.MOBILE ? 'block' : 'none';
-  // }};
+  display: ${(props) => {
+    return props.screenType === SCREEN_TYPES.MOBILE || (props.width < 1200 && props.height > 600) ? 'block' : 'none';
+  }};
 `;
+
+

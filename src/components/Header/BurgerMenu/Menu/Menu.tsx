@@ -13,7 +13,6 @@ export const Menu = ({open, setOpen}: IMenu) => {
   const node = useRef<HTMLDivElement>(null);
   const close = () => setOpen(false);
 
-  // let { width = 320, screenType } = window;
   let {width = 320, screenType} = window;
 
   useOnClickOutside(node, () => setOpen(false));

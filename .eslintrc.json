@@ -34,8 +34,7 @@
     "react/react-in-jsx-scope": "off",
     "react/display-name": "off",
     "indent": [
-      "error",
-      2
+      "off"
     ],
     "linebreak-style": "off",
     "quotes": [

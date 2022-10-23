@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 export const VerticalBurgerMenu = styled.nav<{ open: boolean }>`
   top: 0;
-  right: 0;
+  left: 0;
   height: 100vh;
   width: 40%;
   position: fixed;
@@ -18,6 +18,8 @@ export const VerticalBurgerMenu = styled.nav<{ open: boolean }>`
 
   transition: transform 0.5s ease-in-out;
   transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(100%)')};
+
+  background: rgb(0, 0, 0);
 
   @media (max-width: 600px) {
     width: 100%;

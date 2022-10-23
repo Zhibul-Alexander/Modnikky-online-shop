@@ -11,24 +11,24 @@ export const Burger = (props: Props) => {
 
   return (
     <BurgerContainer
-      width={20}
-      height={20}
+      width={30}
+      height={30}
       open={props.open}
       onClick={() => props.setOpen(!props.open)}
     >
       <BurgerDiv
-        width={20}
-        transform={20}
+        width={30}
+        transform={11}
         open={props.open}
       />
       <BurgerDiv
-        width={20}
-        transform={20}
+        width={30}
+        transform={11}
         open={props.open}
       />
       <BurgerDiv
-        width={20}
-        transform={20}
+        width={30}
+        transform={11}
         open={props.open}
       />
     </BurgerContainer>

@@ -15,6 +15,7 @@ import {Wrapper, Container, ContainerTitle} from './styles';
 import './index.css';
 
 const SaleBlock = () => {
+  const {width = 320} = window;
 
   const [saleCards, setSaleCards] = useState<Catalog[]>([]);
 
@@ -27,7 +28,6 @@ const SaleBlock = () => {
     setSaleCards(getSaleCards.data);
   };
 
-
   useEffect(() => {
     getData().catch(console.error);
   }, []);
@@ -36,12 +36,14 @@ const SaleBlock = () => {
     <>
       <Wrapper>
         <Container>
-          <ContainerTitle className="main-page-title">#MODNIKKY_<b>Sale</b></ContainerTitle>
+          <ContainerTitle className="main-page-title">
+            {width > 500 ? <>#MODNIKKY_<b>Sale</b></> : <>#MODNIKKY_<br/><b>Sale</b></>}
+          </ContainerTitle>
           <Swiper
-            slidesPerView={3}
+            slidesPerView={width > 1000 ? 3 : (width > 850 ? 2 : 1)}
             spaceBetween={37}
-            slidesPerGroup={3}
-            initialSlide={3}
+            slidesPerGroup={width > 1000 ? 3 : (width > 850 ? 2 : 1)}
+            initialSlide={width > 1000 ? 3 : (width > 850 ? 2 : 1)}
             loop={true}
             loopFillGroupWithBlank={true}
             navigation={true}

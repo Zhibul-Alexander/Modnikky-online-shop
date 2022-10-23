@@ -14,10 +14,31 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   padding: 0 120px 150px 120px;
+
+  @media (max-width: 1600px) {
+    padding: 0 83px 125px 83px;
+  }
+  @media (max-width: 1200px) {
+    padding: 0 63px 100px 63px;
+  }
 `;
 
 export const ContainerTitle = styled.h3`
-  margin-bottom: 160px;
+  margin: 0 0 160px 37px;
+
+  @media (max-width: 1600px) {
+    margin: 0 0 125px 37px;
+  }
+
+  @media (max-width: 1200px) {
+    margin: 0 0 100px 37px;
+  }
+
+  @media (max-width: 850px) {
+    text-align: center;
+
+    margin: 0 0 100px 0;
+  }
 `;
 
 export const ContainerContent = styled.div`
