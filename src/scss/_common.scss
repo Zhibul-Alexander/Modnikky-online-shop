@@ -133,6 +133,32 @@
   text-decoration: none;
 }
 
+.header-search-input, .header-search-input::placeholder {
+  font-family: $secondary-font;
+  font-weight: font-weight('regular');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 32px;
+  line-height: 36px;
+
+  color: $black-1;
+  text-decoration: none;
+}
+
+.header-search-input-result {
+  font-family: $secondary-font;
+  font-weight: font-weight('regular');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 24px;
+  line-height: 28px;
+
+  color: $black-1;
+  text-decoration: none;
+}
+
 
 @media (max-width: 1600px) {
   .header-li {

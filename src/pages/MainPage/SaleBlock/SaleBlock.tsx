@@ -13,6 +13,7 @@ import API from '../../../api';
 
 import {Wrapper, Container, ContainerTitle} from './styles';
 import './index.css';
+import SearchBar from '../../../components/SearchBar/SearchBar';
 
 const SaleBlock = () => {
   const {width = 320} = window;
@@ -69,6 +70,7 @@ const SaleBlock = () => {
             ))}
           </Swiper>
         </Container>
+        <SearchBar placeholder="Enter search terms ..."/>
       </Wrapper>
     </>
   );

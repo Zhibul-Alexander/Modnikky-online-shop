@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import Headroom from 'react-headroom';
 
 import {Menu} from './BurgerMenu/index';
-import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
+import SearchBar from '../SearchBar/SearchBar';
 
 import {
   Content,
@@ -43,6 +43,7 @@ const Header = () => {
           <HeaderUl screenType={screenType} displayWidth={width} width={width > 1600 ? 550 : 395} height={height}>
             <HeaderLi marginRight={10} className="header-li">
               Search
+              {/*<SearchBar placeholder="Enter product ..."/>*/}
             </HeaderLi>
             <HeaderLi marginRight={10} className="header-li">
               Sign in
