@@ -5,10 +5,11 @@ import ScrollToTop from './utils/ScrollToTop/ScrollToTop';
 import Loader from './components/Loader/Loader';
 import DefaultLayout from './components/Layout/DefaultLayout';
 
-import './index.css';
+import {ShoppingCartProvider} from './context/ShoppingCartContext/ShoppingCartContext';
 import {useScreenSizeHook} from './hooks/useScreenSizeHook';
 import {SCREEN_TYPES} from './hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
 
+import './index.css';
 import './scss/style.scss';
 
 declare global {
@@ -33,17 +34,16 @@ function App() {
   window.screenType = screenType;
 
   return (
-    <>
+    <ShoppingCartProvider>
       <Router>
         <ScrollToTop/>
         <React.Suspense fallback={loading}>
           <Routes>
-
             <Route path="*" element={<DefaultLayout/>}/>
           </Routes>
         </React.Suspense>
       </Router>
-    </>
+    </ShoppingCartProvider>
   );
 }
 

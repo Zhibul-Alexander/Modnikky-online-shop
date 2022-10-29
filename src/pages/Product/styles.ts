@@ -63,12 +63,16 @@ export const ProductColorSquare = styled.div<{ color: string }>`
   margin-bottom: 30px;
 `;
 
-export const ProductSize = styled.span`
+export const ProductSizeSelect = styled.select`
   margin-bottom: 30px;
 `;
 
-export const ProductButton = styled.button`
-  background: black;
+export const ProductSizeOption = styled.option`
+`;
+
+export const ProductButton = styled.button<{ disabledBg?: boolean }>`
+  background: ${({disabledBg}) => (disabledBg ? ' rgba(0, 0, 0, .1)' : ' rgb(0, 0, 0)')};
+  border: none;
 
   text-transform: uppercase;
 

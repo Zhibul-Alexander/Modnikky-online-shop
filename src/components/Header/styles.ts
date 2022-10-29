@@ -76,7 +76,6 @@ export const HeaderUl = styled.ul<{ width: number, height: number, margin?: stri
 export const HeaderLi = styled.li<{ marginRight?: number }>`
   margin-right: ${({marginRight}) => marginRight}px;
 
-  text-decoration: none;
   text-transform: uppercase;
 
   cursor: pointer;
@@ -85,6 +84,9 @@ export const HeaderLi = styled.li<{ marginRight?: number }>`
 export const HeaderLink = styled(Link)`
   width: 100%;
   height: 100%;
+
+  text-decoration: none;
+  color: #FFFFFF;
 `;
 
 export const HeaderNavigationBarLIMedium = styled.li<{

@@ -37,7 +37,7 @@ const Header = () => {
           <HeaderUl screenType={screenType} margin={'0 40px'} displayWidth={width} width={width} height={height}
                     style={{width: 'auto'}}>
             <HeaderLi>
-              <HeaderLink to="/home" className="header-logo"> Modnikky</HeaderLink>
+              <HeaderLink to="/home" className="header-logo">Modnikky</HeaderLink>
             </HeaderLi>
           </HeaderUl>
           <HeaderUl screenType={screenType} displayWidth={width} width={width > 1600 ? 550 : 395} height={height}>
@@ -48,8 +48,8 @@ const Header = () => {
             <HeaderLi marginRight={10} className="header-li">
               Sign in
             </HeaderLi>
-            <HeaderLi marginRight={10} className="header-li">
-              Bag
+            <HeaderLi marginRight={10}>
+              <HeaderLink to="/bag" className="header-li">Bag</HeaderLink>
             </HeaderLi>
             <HeaderLi>
               Like

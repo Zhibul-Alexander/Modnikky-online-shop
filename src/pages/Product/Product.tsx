@@ -4,7 +4,7 @@ import {
   GridContainer, ProductButton, ProductColorSquare, ProductDescription,
   ProductImg,
   ProductInformation,
-  ProductPrice, ProductSize, ProductText,
+  ProductPrice, ProductSizeOption, ProductSizeSelect, ProductText,
   ProductTitle,
   Wrapper,
 } from './styles';
@@ -12,9 +12,14 @@ import {useParams} from 'react-router-dom';
 import API from '../../api';
 import Catalog from '../../types/api/catalog';
 
+import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
+
 const Product = () => {
   const {productId} = useParams();
   const [product, setProduct] = useState<Catalog[]>([]);
+  const [selectedSize, setSelectedSize] = useState<string>('');
+  const [productIdNumber, setProductIdNumber] = useState<string>('0');
+  const [addButtonDisabled, setAddButtonDisabled] = useState<boolean>(true);
 
   const getData = async () => {
     const getSaleCards = await API.catalog.getCatalog();
@@ -44,6 +49,21 @@ const Product = () => {
     getData().catch(console.error);
   }, []);
 
+  useEffect(() => {
+    product.forEach(item => setProductIdNumber((item.id)));
+  }, [product]);
+
+  useEffect(() => {
+    if (selectedSize === '') {
+      setAddButtonDisabled(true);
+    } else {
+      setAddButtonDisabled(false);
+    }
+  }, [selectedSize]);
+
+  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
+  const quantity = getItemQuantity(productIdNumber, selectedSize);
+
   return (
     <Wrapper>
       {product.map(({images, id, name, price, color, availableSizes, description}) => (
@@ -57,8 +77,30 @@ const Product = () => {
               <ProductText className="product-common-text">Color</ProductText>
               <ProductColorSquare color={color.hex}></ProductColorSquare>
               <ProductText className="product-common-text">Size</ProductText>
-              <ProductSize className="product-common-text">{availableSizes.toString().split(',')}</ProductSize>
-              <ProductButton className="product-common-text">Add to bag</ProductButton>
+              <ProductSizeSelect name="select" onChange={(event) => setSelectedSize(event.target.value)}>
+                <ProductSizeOption disabled={true} selected={true}>Select size</ProductSizeOption>
+                {availableSizes.toString().split(',').map((size, index) => (
+                  <ProductSizeOption key={size.toUpperCase()} value={size.toUpperCase()}>
+                    {size.toUpperCase()}
+                  </ProductSizeOption>
+                ))}
+              </ProductSizeSelect>
+
+              {/*<ProductSize className="product-common-text"></ProductSize>*/}
+              {quantity === 0 ? (
+                  <ProductButton
+                    disabled={addButtonDisabled}
+                    disabledBg={addButtonDisabled}
+                    className="product-common-text"
+                    onClick={() => increaseCartQuantity(id, selectedSize)}>
+                    Add to bag
+                  </ProductButton>) :
+                (<>
+                  <button onClick={() => decreaseCartQuantity(id, selectedSize)}>-</button>
+                  <ProductButton className="product-common-text">{quantity}</ProductButton>
+                  <button onClick={() => increaseCartQuantity(id, selectedSize)}>+</button>
+                  <button onClick={() => removeFromCart(id, selectedSize)}>remove</button>
+                </>)}
               <ProductDescription className="product-common-text">{description}</ProductDescription>
             </ProductInformation>
           </GridContainer>
