@@ -62,7 +62,6 @@ const Header = () => {
 
         </Content>
       </Wrapper>
-      {/*<SearchBar placeholder="Enter search terms ..."/>*/}
     </Headroom>
   );
 };

@@ -15,6 +15,8 @@ export const Wrapper = styled.div`
 `;
 
 export const BagTitle = styled.h3`
+  position: relative;
+
   border-bottom: 3px solid #D8D8D8;
 
   margin: 0;
@@ -32,3 +34,16 @@ export const DefaultTitle = styled.h3`
   text-transform: uppercase;
 `;
 
+export const ProductButton = styled.button`
+  background: rgb(0, 0, 0);
+  border: none;
+
+  height: 90px;
+
+  text-transform: uppercase;
+
+  margin: 0 0 150px 0;
+  padding: 20px 40px;
+
+  color: #FFFFFF;
+`;

@@ -189,6 +189,21 @@
   text-transform: uppercase;
 }
 
+.bag-container-title-items {
+  font-family: $primary-font;
+  font-weight: font-weight('light');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 24px;
+  line-height: 28px;
+
+  color: $gray-1;
+  text-decoration: none;
+
+  text-transform: lowercase;
+}
+
 
 @media (max-width: 1600px) {
   .header-li {

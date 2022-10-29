@@ -22,6 +22,7 @@ type ShoppingCartContext = {
   removeFromCart: (id: string, size: string) => void
   cartQuantity: number
   cartItems: CartItem[]
+  clearAllCart: () => void
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -84,6 +85,10 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps) {
     });
   }
 
+  function clearAllCart() {
+    return setCartItems([]);
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -93,6 +98,7 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps) {
         removeFromCart,
         cartQuantity,
         cartItems,
+        clearAllCart,
       }}>
       {children}
     </ShoppingCartContext.Provider>

@@ -63,7 +63,7 @@ const CartItem = ({id, options: {quantity, size}}: CartItemProps) => {
             <Content>
               <ContainerTitle className="bag-container-title">{name}</ContainerTitle>
               <ContainerPriceText
-                className="bag-container-text">{`${price.value} ${price.currency}`}</ContainerPriceText>
+                className="bag-container-text">{`${Number(price.value) * 0.6 / 10} ${price.currency}`}</ContainerPriceText>
 
               <ContainerText className="bag-container-text">Color: {color.name}</ContainerText>
               <ContainerText className="bag-container-text">Size: {size}</ContainerText>

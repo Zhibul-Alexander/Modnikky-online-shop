@@ -73,7 +73,8 @@ const Product = () => {
             <ProductImg src={images[1]}/>
             <ProductInformation>
               <ProductTitle className="product-title">{name}</ProductTitle>
-              <ProductPrice className="product-common-text">{`${price.value} ${price.currency}`}</ProductPrice>
+              <ProductPrice
+                className="product-common-text">{`${Number(price.value) * 0.6 / 10} ${price.currency}`}</ProductPrice>
               <ProductText className="product-common-text">Color: {color.name}</ProductText>
               <ProductColorSquare color={color.hex}></ProductColorSquare>
               <ProductText className="product-common-text">Size</ProductText>
