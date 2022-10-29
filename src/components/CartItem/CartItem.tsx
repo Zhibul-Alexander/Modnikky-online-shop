@@ -2,6 +2,17 @@ import React, {useEffect, useState} from 'react';
 import Catalog from '../../types/api/catalog';
 import API from '../../api';
 import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
+import MCloseIcon from '@material-ui/icons/Close';
+import {
+  Wrapper,
+  ContainerImg,
+  Img,
+  ContainerText,
+  ContainerTitle,
+  Container,
+  Content,
+  RemoveButton, ContainerPriceText,
+} from './styles';
 
 type CartItemProps = {
   id: string
@@ -41,24 +52,36 @@ const CartItem = ({id, options: {quantity, size}}: CartItemProps) => {
   const {removeFromCart} = useShoppingCart();
 
   return (
-    <div>
+    <Wrapper>
       {product.map(({images, id, name, price, color, description}) => (
-        <div key={id}>
-          <img src={images[0]} style={{width: '100px', height: '250px'}}/>
-          <div>{name}</div>
-          <div>{price.currency}</div>
-          <div>{color.hex}</div>
-          <div>{size}</div>
-          <div>{description}</div>
-          <div>{quantity}</div>
-          {/*<button*/}
-          {/*  onClick={() => removeFromCart(id)}*/}
-          {/*>*/}
-          {/*  &times;*/}
-          {/*</button>*/}
+        <div key={id} style={{display: 'flex', flexDirection: 'column'}}>
+          <Container>
+            <ContainerImg>
+              <Img src={images[0]}/>
+            </ContainerImg>
+
+            <Content>
+              <ContainerTitle className="bag-container-title">{name}</ContainerTitle>
+              <ContainerPriceText
+                className="bag-container-text">{`${price.value} ${price.currency}`}</ContainerPriceText>
+
+              <ContainerText className="bag-container-text">Color: {color.name}</ContainerText>
+              <ContainerText className="bag-container-text">Size: {size}</ContainerText>
+              <ContainerText className="bag-container-text">Quantity: {quantity}</ContainerText>
+            </Content>
+
+          </Container>
+
+          <RemoveButton
+            onClick={() => removeFromCart(id, size)}
+            className="bag-container-text"
+          >
+            <MCloseIcon style={{width: '36px', height: '36px', marginBottom: '6px'}}/>
+            <div style={{margin: 0}}>Remove</div>
+          </RemoveButton>
         </div>
       ))}
-    </div>
+    </Wrapper>
   );
 };
 

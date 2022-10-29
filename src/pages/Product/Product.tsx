@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {
-  GridContainer, ProductButton, ProductColorSquare, ProductDescription,
+  GridContainer, ProductButton, ProductButtonCalc, ProductButtonRemove, ProductColorSquare, ProductDescription,
   ProductImg,
   ProductInformation,
   ProductPrice, ProductSizeOption, ProductSizeSelect, ProductText,
@@ -74,10 +74,12 @@ const Product = () => {
             <ProductInformation>
               <ProductTitle className="product-title">{name}</ProductTitle>
               <ProductPrice className="product-common-text">{`${price.value} ${price.currency}`}</ProductPrice>
-              <ProductText className="product-common-text">Color</ProductText>
+              <ProductText className="product-common-text">Color: {color.name}</ProductText>
               <ProductColorSquare color={color.hex}></ProductColorSquare>
               <ProductText className="product-common-text">Size</ProductText>
-              <ProductSizeSelect name="select" onChange={(event) => setSelectedSize(event.target.value)}>
+              <ProductSizeSelect className="product-common-text"
+                                 name="select"
+                                 onChange={(event) => setSelectedSize(event.target.value)}>
                 <ProductSizeOption disabled={true} selected={true}>Select size</ProductSizeOption>
                 {availableSizes.toString().split(',').map((size, index) => (
                   <ProductSizeOption key={size.toUpperCase()} value={size.toUpperCase()}>
@@ -85,8 +87,6 @@ const Product = () => {
                   </ProductSizeOption>
                 ))}
               </ProductSizeSelect>
-
-              {/*<ProductSize className="product-common-text"></ProductSize>*/}
               {quantity === 0 ? (
                   <ProductButton
                     disabled={addButtonDisabled}
@@ -96,10 +96,31 @@ const Product = () => {
                     Add to bag
                   </ProductButton>) :
                 (<>
-                  <button onClick={() => decreaseCartQuantity(id, selectedSize)}>-</button>
-                  <ProductButton className="product-common-text">{quantity}</ProductButton>
-                  <button onClick={() => increaseCartQuantity(id, selectedSize)}>+</button>
-                  <button onClick={() => removeFromCart(id, selectedSize)}>remove</button>
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    height: '90px',
+                    marginBottom: '10px',
+                    maxWidth: '300px',
+                    width: '100%',
+                  }}>
+                    <ProductButton className="product-common-text">Quantity: {quantity}</ProductButton>
+
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                    }}>
+                      <ProductButtonCalc className="product-common-text"
+                                         onClick={() => increaseCartQuantity(id, selectedSize)}>+</ProductButtonCalc>
+                      <ProductButtonCalc className="product-common-text"
+                                         onClick={() => decreaseCartQuantity(id, selectedSize)}>-</ProductButtonCalc>
+                    </div>
+                  </div>
+
+
+                  <ProductButtonRemove onClick={() => removeFromCart(id, selectedSize)}>remove</ProductButtonRemove>
                 </>)}
               <ProductDescription className="product-common-text">{description}</ProductDescription>
             </ProductInformation>

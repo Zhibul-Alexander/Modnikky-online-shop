@@ -70,7 +70,6 @@ const SaleBlock = () => {
             ))}
           </Swiper>
         </Container>
-        <SearchBar placeholder="Enter search terms ..."/>
       </Wrapper>
     </>
   );
