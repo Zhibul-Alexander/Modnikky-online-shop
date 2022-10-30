@@ -1,4 +1,9 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+
+import {isEmailValid} from '../../utils/isEmailValid/isEmailValid';
+
+import API from '../../api';
+
 import {
   GridButton,
   GridColumn,
@@ -11,6 +16,58 @@ import {
 } from './styles';
 
 const Footer = () => {
+  const [email, setEmail] = useState<string>('');
+  const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
+  const [subscribeMessage, setSubscribeMessage] = useState<string>('');
+  const [visible, setVisible] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (isEmailValid(email)) {
+      setButtonDisabled(false);
+    } else {
+      setButtonDisabled(true);
+    }
+  }, [email]);
+
+  const subscribe = async () => {
+    try {
+      const postEmail = await API.subscribe.subscribe(email);
+
+      if (postEmail.status === 200) {
+        setSubscribeMessage('Thank you for subscribing to our newsletter!');
+        setVisible(true);
+        setEmail('');
+
+        setTimeout(() => {
+          setSubscribeMessage('');
+          window.scrollTo(0, 0);
+          setVisible(false);
+        }, 2000);
+
+      } else {
+        setSubscribeMessage('Failed. Please try again later');
+        setVisible(true);
+        setEmail('');
+
+        setTimeout(() => {
+          setSubscribeMessage('');
+          window.scrollTo(0, 0);
+          setVisible(false);
+        }, 2000);
+      }
+    } catch {
+      setSubscribeMessage('Failed. Please try again later');
+      setVisible(true);
+      setEmail('');
+
+      setTimeout(() => {
+        setSubscribeMessage('');
+        window.scrollTo(0, 0);
+        setVisible(false);
+      }, 2000);
+    }
+  };
+
   return (
     <Wrapper>
       <GridContainer>
@@ -49,14 +106,26 @@ const Footer = () => {
 
         <GridColumn className="fifth" style={{gridArea: 'fifth', justifySelf: 'center', alignItems: 'center'}}>
           <GridColumnTitle className="footer-title" style={{marginBottom: '20px'}}>SIGN UP FOR UPDATES</GridColumnTitle>
-          <GridColumnText className="footer-text" marginBottom={80}>
+          <GridColumnText className="footer-text" marginBottom={80} style={{cursor: 'auto'}}>
             Sign up for exclusive early sale access and tailored new arrivals.
           </GridColumnText>
 
-          <GridInputContainer className="footer-title">
-            <GridInput placeholder="Your email address"/>
-            <GridButton>JOIN</GridButton>
-          </GridInputContainer>
+          {visible ? (<p className="subscribe-message" style={{margin: '0 0 40px 0px'}}>{subscribeMessage}</p>) : (
+            <GridInputContainer className="footer-title-input">
+              <GridInput placeholder="Enter your email"
+                         type="text"
+                         id="footer-email-input"
+                         value={email}
+                         autoComplete="off"
+                         onChange={(e) => setEmail(e.target.value)}/>
+              <GridButton disabled={buttonDisabled}
+                          buttonDisabled={buttonDisabled}
+                          className="footer-title"
+                          onClick={subscribe}>
+                JOIN
+              </GridButton>
+            </GridInputContainer>)}
+
         </GridColumn>
       </GridContainer>
     </Wrapper>

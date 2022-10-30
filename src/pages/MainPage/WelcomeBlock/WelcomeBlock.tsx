@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 import WelcomeBackground from '../../../assets/images/MainPage/WelcomeBackground.webp';
 

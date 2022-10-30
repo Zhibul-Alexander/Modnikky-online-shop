@@ -18,7 +18,7 @@ import {
   ButtonContainer,
   ProductButton,
 } from './styles';
-import {ProductButtonCalc, ProductSizeOption, ProductSizeSelect} from '../../pages/Product/styles';
+import {ProductSizeOption, ProductSizeSelect} from '../../pages/Product/styles';
 
 type CartItemProps = {
   id: string

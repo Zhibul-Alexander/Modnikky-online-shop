@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {Navigation} from 'swiper';
 import 'swiper/css';
@@ -13,7 +12,6 @@ import API from '../../../api';
 
 import {Wrapper, Container, ContainerTitle} from './styles';
 import './index.css';
-import SearchBar from '../../../components/SearchBar/SearchBar';
 
 const SaleBlock = () => {
   const {width = 320} = window;

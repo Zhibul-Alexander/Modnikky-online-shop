@@ -1,11 +1,12 @@
 import React, {FC, useEffect, useState} from 'react';
 
 import CartItem from '../../components/CartItem/CartItem';
-
 import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
-import {BagTitle, DefaultTitle, ProductButton, Wrapper} from './styles';
-import Catalog from '../../types/api/catalog';
+
 import API from '../../api';
+import Catalog from '../../types/api/catalog';
+
+import {BagTitle, DefaultTitle, ProductButton, Wrapper} from './styles';
 
 const Bag: FC = () => {
   const {cartItems, clearAllCart} = useShoppingCart();

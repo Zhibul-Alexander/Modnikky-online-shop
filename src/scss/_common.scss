@@ -120,9 +120,37 @@
   text-decoration: none;
 }
 
+.subscribe-message {
+  font-family: $primary-font;
+  font-weight: font-weight('bold');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 32px;
+  line-height: 36px;
+
+  color: $black-1;
+  text-decoration: none;
+
+  border-bottom: solid 3px $black-1;
+}
+
+.footer-title-input {
+  font-family: $secondary-font;
+  font-weight: font-weight('light');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 32px;
+  line-height: 36px;
+
+  color: $black-1;
+  text-decoration: none;
+}
+
 .footer-text {
   font-family: $secondary-font;
-  font-weight: font-weight('regular');
+  font-weight: font-weight('light');
   font-style: normal;
   letter-spacing: 0.04em;
 

@@ -75,7 +75,7 @@ export const ProductButton = styled.button<{ disabledBg?: boolean }>`
   height: 90px;
   width: 100%;
 
-  max-width: 300px;
+  max-width: 320px;
 
   text-transform: uppercase;
 

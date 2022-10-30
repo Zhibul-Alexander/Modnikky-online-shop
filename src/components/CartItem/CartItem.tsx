@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import MCloseIcon from '@material-ui/icons/Close';
+
+import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
+
 import Catalog from '../../types/api/catalog';
 import API from '../../api';
-import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
-import MCloseIcon from '@material-ui/icons/Close';
+
 import {
   Wrapper,
   ContainerImg,

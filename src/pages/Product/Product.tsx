@@ -1,4 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import {cilHeart} from '@coreui/icons';
+
+import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
+
+import API from '../../api';
+import Catalog from '../../types/api/catalog';
 
 import {
   GridContainer,
@@ -18,12 +25,6 @@ import {
   Wrapper,
   LikeIcon,
 } from './styles';
-import {useParams} from 'react-router-dom';
-import API from '../../api';
-import Catalog from '../../types/api/catalog';
-
-import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
-import {cilHeart} from '@coreui/icons';
 
 const Product = () => {
   const {productId} = useParams();

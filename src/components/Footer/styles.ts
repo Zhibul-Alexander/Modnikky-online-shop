@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 
 export const GridContainer = styled.div`
   display: grid;
-  grid-template: 0.8fr 1fr / repeat(4, 1fr);
+  grid-template: 0.7fr 1fr / repeat(4, 1fr);
   gap: 0;
 
   grid-template-areas:
@@ -76,6 +76,8 @@ export const GridColumnTitle = styled.h3`
 export const GridColumnText = styled.span<{ marginBottom?: number }>`
   margin: ${(props) => `0 0 ${props.marginBottom = 40}px 0`};
 
+  cursor: pointer;
+
   @media (max-width: 1600px) {
     margin: 0 0 25px 0;
   }
@@ -113,7 +115,7 @@ export const GridInput = styled.input`
   outline: none;
 `;
 
-export const GridButton = styled.button`
+export const GridButton = styled.button<{ buttonDisabled: boolean }>`
   position: absolute;
   top: 50%;
   right: -30px;
@@ -126,4 +128,6 @@ export const GridButton = styled.button`
 
   margin: 0;
   padding: 0;
+
+  opacity: ${({buttonDisabled}) => buttonDisabled ? 0.1 : 1};
 `;

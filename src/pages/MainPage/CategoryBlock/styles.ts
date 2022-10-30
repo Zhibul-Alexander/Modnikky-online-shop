@@ -65,6 +65,15 @@ export const ContentCategory = styled(Link)`
 
   text-decoration: none;
 
+  transition: all 300ms ease-in-out;
+
+  :hover {
+    outline: 0;
+
+    background-color: #eee1f6;
+    box-shadow: 0 0 10px 0 #eee1f6 inset, 0 0 10px 4px #eee1f6;
+  }
+
   @media (max-width: 1600px) {
     padding: 30px 40px;
   }
