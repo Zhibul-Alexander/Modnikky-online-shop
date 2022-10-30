@@ -1,6 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-import {CardImg, CardLink, CardPrice, CardPriceContainer, CardSalePrice, WrapperCard} from './styles';
+import CIcon from '@coreui/icons-react';
+import {cilHeart} from '@coreui/icons';
+
+import {
+  CardImg,
+  CardLink,
+  CardPrice,
+  CardPriceContainer,
+  CardSalePrice,
+  LikeButton,
+  LikeIcon,
+  WrapperCard,
+} from './styles';
+import {useNavigate} from 'react-router-dom';
+import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
 
 interface IPrice {
   currency: string;
@@ -16,6 +30,12 @@ interface ISaleCard {
 
 
 const ProductCard = ({images, price, id, visibleCardPrice = true}: ISaleCard) => {
+  const [likeItem, setLikeItem] = useState<boolean>(false);
+
+  const {
+    clickFavoriteItem,
+  } = useShoppingCart();
+
   return (
     <WrapperCard key={id}>
       <CardLink to={`/product/${id}`}>
@@ -36,6 +56,14 @@ const ProductCard = ({images, price, id, visibleCardPrice = true}: ISaleCard) =>
           </>
         }
       </CardPriceContainer>
+      <LikeButton
+        onClick={() => {
+          clickFavoriteItem(id);
+          setLikeItem(!likeItem);
+        }}
+      >
+        <LikeIcon icon={cilHeart} className={`${likeItem ? 'like-icon-active' : 'like-icon'}`}/>
+      </LikeButton>
     </WrapperCard>
   );
 };

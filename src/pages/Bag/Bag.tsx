@@ -37,6 +37,7 @@ const Bag: FC = () => {
           localStorage.clear();
           clearAllCart();
           setCheckoutMessage('');
+          window.scrollTo(0, 0);
         }, 2000);
 
       } else {
@@ -59,11 +60,13 @@ const Bag: FC = () => {
   return (
     <Wrapper>
       <BagTitle className="main-page-title">Bag
-        <span className="bag-container-title-items" style={{position: 'absolute', bottom: 33, left: 170}}>
+        {cartItems.length > 0 &&
+          <span className="bag-container-title-items"
+                style={{position: 'absolute', bottom: 33, left: 170}}>
           {`${cartItems.reduce((total, cartItem) => {
             return total + cartItem.options.quantity;
           }, 0)} items`}
-        </span>
+        </span>}
       </BagTitle>
 
       {cartItems.length > 0 ? (
@@ -86,7 +89,7 @@ const Bag: FC = () => {
         (
           <>
             <DefaultTitle className="bag-container-text">
-              No items selected ..
+              No selected items ..
             </DefaultTitle>
           </>
         )}

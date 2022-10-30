@@ -52,7 +52,7 @@ const Header = () => {
               <HeaderLink to="/bag" className="header-li">Bag</HeaderLink>
             </HeaderLi>
             <HeaderLi>
-              Like
+              <HeaderLink to="/favorite" className="header-li">Like</HeaderLink>
             </HeaderLi>
           </HeaderUl>
 

@@ -76,7 +76,7 @@ const CartItem = ({id, options: {quantity, size}}: CartItemProps) => {
             onClick={() => removeFromCart(id, size)}
             className="bag-container-text"
           >
-            <MCloseIcon style={{width: '36px', height: '36px', marginBottom: '6px'}}/>
+            <MCloseIcon style={{width: '36px', height: '36px', marginBottom: '8px'}}/>
             <div style={{margin: 0}}>Remove</div>
           </RemoveButton>
         </div>

@@ -1,25 +1,47 @@
 import React, {useEffect, useState} from 'react';
 
 import {
-  GridContainer, ProductButton, ProductButtonCalc, ProductButtonRemove, ProductColorSquare, ProductDescription,
+  GridContainer,
+  LikeButton,
+  ProductButton,
+  ProductButtonCalc,
+  ProductButtonRemove,
+  ProductColorSquare,
+  ProductDescription,
   ProductImg,
   ProductInformation,
-  ProductPrice, ProductSizeOption, ProductSizeSelect, ProductText,
+  ProductPrice,
+  ProductSizeOption,
+  ProductSizeSelect,
+  ProductText,
   ProductTitle,
   Wrapper,
+  LikeIcon,
 } from './styles';
 import {useParams} from 'react-router-dom';
 import API from '../../api';
 import Catalog from '../../types/api/catalog';
 
 import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
+import {cilHeart} from '@coreui/icons';
 
 const Product = () => {
   const {productId} = useParams();
+
   const [product, setProduct] = useState<Catalog[]>([]);
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [productIdNumber, setProductIdNumber] = useState<string>('0');
   const [addButtonDisabled, setAddButtonDisabled] = useState<boolean>(true);
+  const [likeItem, setLikeItem] = useState<boolean>(false);
+
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+    clickFavoriteItem,
+  } = useShoppingCart();
+  const quantity = getItemQuantity(productIdNumber, selectedSize);
 
   const getData = async () => {
     const getSaleCards = await API.catalog.getCatalog();
@@ -61,9 +83,6 @@ const Product = () => {
     }
   }, [selectedSize]);
 
-  const {getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart} = useShoppingCart();
-  const quantity = getItemQuantity(productIdNumber, selectedSize);
-
   return (
     <Wrapper>
       {product.map(({images, id, name, price, color, availableSizes, description}) => (
@@ -82,20 +101,32 @@ const Product = () => {
                                  name="select"
                                  onChange={(event) => setSelectedSize(event.target.value)}>
                 <ProductSizeOption disabled={true} selected={true}>Select size</ProductSizeOption>
-                {availableSizes.toString().split(',').map((size, index) => (
+                {availableSizes.toString().split(',').map((size) => (
                   <ProductSizeOption key={size.toUpperCase()} value={size.toUpperCase()}>
                     {size.toUpperCase()}
                   </ProductSizeOption>
                 ))}
               </ProductSizeSelect>
               {quantity === 0 ? (
-                  <ProductButton
-                    disabled={addButtonDisabled}
-                    disabledBg={addButtonDisabled}
-                    className="product-common-text"
-                    onClick={() => increaseCartQuantity(id, selectedSize)}>
-                    Add to bag
-                  </ProductButton>) :
+                  <div style={{display: 'flex', boxSizing: 'border-box'}}>
+                    <ProductButton
+                      disabled={addButtonDisabled}
+                      disabledBg={addButtonDisabled}
+                      className="product-common-text"
+                      onClick={() => increaseCartQuantity(id, selectedSize)}>
+                      Add to bag
+                    </ProductButton>
+                    <LikeButton
+                      onClick={() => {
+                        clickFavoriteItem(id);
+                        setLikeItem(!likeItem);
+                      }}
+                      className={`${likeItem ? 'like-button-active' : 'like-button'}`}
+                    >
+                      <LikeIcon icon={cilHeart} className={`${likeItem ? 'like-icon-active' : 'like-icon'}`}/>
+                    </LikeButton>
+                  </div>
+                ) :
                 (<>
                   <div style={{
                     display: 'flex',

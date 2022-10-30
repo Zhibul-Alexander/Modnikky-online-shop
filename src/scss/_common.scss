@@ -204,6 +204,21 @@
   text-transform: lowercase;
 }
 
+.like-icon {
+  color: $white-1;
+}
+
+.like-button {
+  background: $black-1;
+}
+
+.like-icon-active {
+  color: $sale-1;
+}
+
+.like-button-active {
+  background: rgba(0, 0, 0, .1);
+}
 
 @media (max-width: 1600px) {
   .header-li {

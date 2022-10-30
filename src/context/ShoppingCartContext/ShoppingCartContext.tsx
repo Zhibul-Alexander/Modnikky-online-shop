@@ -15,6 +15,10 @@ type CartItem = {
   }
 }
 
+type FavoriteItem = {
+  id: string
+}
+
 type ShoppingCartContext = {
   getItemQuantity: (id: string, size: string) => number
   increaseCartQuantity: (id: string, size: string) => void
@@ -23,6 +27,11 @@ type ShoppingCartContext = {
   cartQuantity: number
   cartItems: CartItem[]
   clearAllCart: () => void
+
+  favoritesItems: FavoriteItem[]
+  clickFavoriteItem: (id: string) => void
+  removeFavoriteItem: (id: string) => void
+  selectQuantity: (id: string, size: string, quantity: number) => void
 }
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -33,6 +42,7 @@ export function useShoppingCart() {
 
 export function ShoppingCartProvider({children}: ShoppingCartProviderProps) {
   const [cartItems, setCartItems] = useLocalStorage<CartItem[]>('shopping-cart', []);
+  const [favoritesItems, setFavoritesItems] = useLocalStorage<FavoriteItem[]>('shopping-like', []);
 
   const cartQuantity = cartItems.reduce(
     (quantity, item) => item.options.quantity + quantity, 0,
@@ -40,7 +50,6 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps) {
 
   function getItemQuantity(id: string, size: string) {
     return cartItems.filter(item => item.id === id).find(item => item.options.size === size)?.options.quantity || 0;
-    // return cartItems.find(item => item.id === id)?.options.quantity || 0;
   }
 
   function increaseCartQuantity(id: string, size: string) {
@@ -89,6 +98,40 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps) {
     return setCartItems([]);
   }
 
+  function clickFavoriteItem(id: string) {
+    setFavoritesItems(favoritesItems => {
+      if (favoritesItems.find(item => item.id === id) == null) {
+        return [...favoritesItems, {id}];
+      } else {
+        const deleteLikeItem = favoritesItems.find(item => (item.id === id));
+        if (!deleteLikeItem) {
+          return favoritesItems;
+        }
+        return favoritesItems.filter(item => item !== deleteLikeItem);
+      }
+    });
+  }
+
+  function removeFavoriteItem(id: string) {
+    setFavoritesItems(favoritesItems => {
+      const deleteItem = favoritesItems.find(item => (item.id === id));
+      if (!deleteItem) {
+        return favoritesItems;
+      }
+      return favoritesItems.filter(item => item !== deleteItem);
+    });
+  }
+
+  function selectQuantity(id: string, size: string, quantity: number) {
+    setCartItems(currItems => {
+      if (currItems.find(item => item.id === id && item.options.size === size) == null) {
+        return [...currItems, {id, options: {quantity: quantity, size: size}}];
+      } else {
+        return currItems;
+      }
+    });
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -99,6 +142,10 @@ export function ShoppingCartProvider({children}: ShoppingCartProviderProps) {
         cartQuantity,
         cartItems,
         clearAllCart,
+        favoritesItems,
+        clickFavoriteItem,
+        removeFavoriteItem,
+        selectQuantity,
       }}>
       {children}
     </ShoppingCartContext.Provider>
