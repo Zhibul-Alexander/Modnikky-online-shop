@@ -21,11 +21,11 @@ export const Container = styled.div`
   padding: 150px;
 
   @media (max-width: 1600px) {
-    padding: 125px;
+    padding: 100px;
   }
 
   @media (max-width: 1200px) {
-    padding: 100px;
+    padding: 50px;
   }
 `;
 
@@ -35,11 +35,11 @@ export const ContainerTitle = styled.h3`
   text-align: center;
 
   @media (max-width: 1600px) {
-    margin: 0 0 125px 0;
+    margin: 0 0 100px 0;
   }
 
   @media (max-width: 1200px) {
-    margin: 0 0 100px 0;
+    margin: 0 0 50px 0;
   }
 `;
 

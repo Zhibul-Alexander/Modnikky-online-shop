@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 
+import MobileFooter from './MobileFooter';
+import {useScreenSizeHook} from '../../hooks/useScreenSizeHook';
 import {isEmailValid} from '../../utils/isEmailValid/isEmailValid';
+import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
 
 import API from '../../api';
 
@@ -20,6 +23,8 @@ const Footer = () => {
   const [buttonDisabled, setButtonDisabled] = useState<boolean>(true);
   const [subscribeMessage, setSubscribeMessage] = useState<string>('');
   const [visible, setVisible] = useState<boolean>(false);
+
+  const {screenType} = useScreenSizeHook();
 
   useEffect(() => {
     if (isEmailValid(email)) {
@@ -68,7 +73,7 @@ const Footer = () => {
     }
   };
 
-  return (
+  return screenType === SCREEN_TYPES.DESKTOP ? (
     <Wrapper>
       <GridContainer>
         <GridColumn className="firstColumn" style={{gridArea: 'firstColumn'}}>
@@ -99,18 +104,18 @@ const Footer = () => {
 
         <GridColumn className="fourthColumn" style={{gridArea: 'fourthColumn'}}>
           <GridColumnTitle className="footer-title">CONTACT US</GridColumnTitle>
-          <GridColumnText className="footer-text">hello@modnikky.com</GridColumnText>
+          <GridColumnText className="footer-text">Hello@modnikky.com</GridColumnText>
           <GridColumnText className="footer-text">PHONE NUMBER</GridColumnText>
           <GridColumnText className="footer-text">COUNTRY</GridColumnText>
         </GridColumn>
 
         <GridColumn className="fifth" style={{gridArea: 'fifth', justifySelf: 'center', alignItems: 'center'}}>
           <GridColumnTitle className="footer-title" style={{marginBottom: '20px'}}>SIGN UP FOR UPDATES</GridColumnTitle>
-          <GridColumnText className="footer-text" marginBottom={80} style={{cursor: 'auto'}}>
+          <GridColumnText className="footer-text" marginBottom={40} style={{cursor: 'auto'}}>
             Sign up for exclusive early sale access and tailored new arrivals.
           </GridColumnText>
 
-          {visible ? (<p className="subscribe-message" style={{margin: '0 0 40px 0px'}}>{subscribeMessage}</p>) : (
+          {visible ? (<p className="accordion-title" style={{margin: '0 0 40px 0px'}}>{subscribeMessage}</p>) : (
             <GridInputContainer className="footer-title-input">
               <GridInput placeholder="Enter your email"
                          type="text"
@@ -129,6 +134,8 @@ const Footer = () => {
         </GridColumn>
       </GridContainer>
     </Wrapper>
+  ) : (
+    <MobileFooter/>
   );
 };
 

@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 
   text-align: center;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
 `;
 
 export const GridContainer = styled.div`
@@ -33,8 +33,8 @@ export const GridContainer = styled.div`
     "firstColumn secondColumn thirdColumn fourthColumn";
   }
 
-  @media (max-width: 1200px) {
-    grid-template: 0.55fr 1fr 1fr / repeat(2, 1fr);
+  @media (max-width: 1280px) {
+    grid-template: 0.65fr 1fr 1fr / repeat(2, 1fr);
 
     grid-template-areas:
     "fifth fifth"
@@ -66,15 +66,15 @@ export const GridColumn = styled.div`
 `;
 
 export const GridColumnTitle = styled.h3`
-  margin: 0 0 60px 0;
+  margin: 0 0 50px 0;
 
   @media (max-width: 1600px) {
-    margin: 0 0 40px 0;
+    margin: 0 0 35px 0;
   }
 `;
 
-export const GridColumnText = styled.span<{ marginBottom?: number }>`
-  margin: ${(props) => `0 0 ${props.marginBottom = 40}px 0`};
+export const GridColumnText = styled.p<{ marginBottom?: number }>`
+  margin: ${(props) => `0 0 ${props.marginBottom}px 0`};
 
   cursor: pointer;
 
@@ -118,7 +118,7 @@ export const GridInput = styled.input`
 export const GridButton = styled.button<{ buttonDisabled: boolean }>`
   position: absolute;
   top: 50%;
-  right: -30px;
+  right: -25px;
 
   transform: translate(-50%, -50%);
 
@@ -130,4 +130,15 @@ export const GridButton = styled.button<{ buttonDisabled: boolean }>`
   padding: 0;
 
   opacity: ${({buttonDisabled}) => buttonDisabled ? 0.1 : 1};
+`;
+
+export const MobileInputContainer = styled.div`
+  justify-self: center;
+  align-self: center;
+`;
+
+export const AccordionContainer = styled.div`
+  padding: 30px 0;
+
+  border-top: 2px dashed #D8D8D8;
 `;

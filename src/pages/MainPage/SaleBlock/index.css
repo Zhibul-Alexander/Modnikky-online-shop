@@ -1,6 +1,6 @@
 .sale-swiper {
     padding: 0 35px;
-    
+
     z-index: 0;
 }
 
@@ -43,17 +43,26 @@
 }
 
 @media (max-width: 550px) {
-    .sale-swiper .swiper-button-prev {
-        padding: 12px 18px;
+    .sale-swiper {
+        padding: 0;
+    }
 
-        top: 44%;
-        left: 4px;
+    .sale-swiper .swiper-button-prev {
+        background: transparent;
+        color: #000F08;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+        padding-left: 12px;
     }
 
     .sale-swiper .swiper-button-next {
-        padding: 12px 18px;
-
-        top: 44%;
-        right: 4px;
+        background: transparent;
+        color: #000F08;
+        border: 0;
+        border-radius: 0;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
+        padding-right: 12px;
     }
 }
+

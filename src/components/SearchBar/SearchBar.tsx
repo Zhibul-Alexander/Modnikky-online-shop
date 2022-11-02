@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {Dispatch, SetStateAction, ChangeEvent, useEffect, useState} from 'react';
 
 import MSearchIcon from '@material-ui/icons/Search';
 import MCloseIcon from '@material-ui/icons/Close';
@@ -19,9 +19,10 @@ import {
 interface ISearchBar {
   placeholder?: string,
   data?: any
+  setSearchBarVisible: Dispatch<SetStateAction<boolean>>
 }
 
-const SearchBar = ({placeholder, data}: ISearchBar) => {
+const SearchBar = ({placeholder, data, setSearchBarVisible}: ISearchBar) => {
 
   const [items, setItems] = useState<Catalog[]>([]);
   const [filterItems, setFilterItems] = useState<Catalog[]>([]);
@@ -39,11 +40,6 @@ const SearchBar = ({placeholder, data}: ISearchBar) => {
     } else {
       setFilterItems(newFilter);
     }
-  };
-
-  const clearInput = () => {
-    setFilterItems([]);
-    setWordEntered('');
   };
 
   const getData = async () => {
@@ -64,8 +60,10 @@ const SearchBar = ({placeholder, data}: ISearchBar) => {
       <BackgroundContainer>
 
         <SearchIcon>
-          {filterItems.length === 0 ? <MSearchIcon style={{width: '100%', height: '100%'}}/> :
-            <MCloseIcon onClick={clearInput} style={{width: '100%', height: '100%'}}/>}
+          <MCloseIcon onClick={() => {
+            setSearchBarVisible(false);
+          }}
+                      style={{width: '100%', height: '100%', cursor: 'pointer'}}/>
         </SearchIcon>
 
         <SearchContent>
@@ -74,7 +72,10 @@ const SearchBar = ({placeholder, data}: ISearchBar) => {
           {filterItems.length !== 0 &&
             <SearchResult>
               {filterItems.slice(0, 8).map((item) => {
-                return <ResultLink key={item.id} to={`/product/${item.id}`} className="header-search-input-result">
+                return <ResultLink onClick={() => {
+                  window.scrollTo(0, 0);
+                  setSearchBarVisible(false);
+                }} key={item.id} to={`/product/${item.id}`} className="header-search-input-result">
                   {item.name}
                 </ResultLink>;
               })}

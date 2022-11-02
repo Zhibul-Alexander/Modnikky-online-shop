@@ -3,7 +3,7 @@ import React, {FC} from 'react';
 import FavoriteItem from '../../components/FavoriteItem/FavoriteItem';
 import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartContext';
 
-import {BagTitle, DefaultTitle, Wrapper} from './styles';
+import {BagItems, BagTitle, DefaultTitle, Wrapper} from './styles';
 
 const Favorite: FC = () => {
   const {favoritesItems} = useShoppingCart();
@@ -12,10 +12,8 @@ const Favorite: FC = () => {
     <Wrapper>
       <BagTitle className="main-page-title">Favorite
         {favoritesItems.length > 0 &&
-          <span className="bag-container-title-items"
-                style={{position: 'absolute', bottom: 33, left: 320}}>
-          {`${favoritesItems.length} items`}
-        </span>}
+          <BagItems className="bag-container-title-items">{`${favoritesItems.length} items`}</BagItems>
+        }
       </BagTitle>
 
       {favoritesItems.length > 0 ? (

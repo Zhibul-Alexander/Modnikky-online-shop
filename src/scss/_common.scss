@@ -232,6 +232,35 @@
   text-transform: lowercase;
 }
 
+.accordion-title {
+  font-family: $primary-font;
+  font-weight: font-weight('light');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 24px;
+  line-height: 28px;
+
+  color: $black-1;
+  text-decoration: none;
+
+  text-transform: uppercase;
+}
+
+.accordion-text {
+  font-family: $primary-font;
+  font-weight: font-weight('light');
+  font-style: normal;
+  letter-spacing: 0.04em;
+
+  font-size: 24px;
+  line-height: 36px;
+  text-align: start;
+
+  color: $gray-1;
+  text-decoration: none;
+}
+
 .like-icon {
   color: $white-1;
 }
@@ -249,41 +278,46 @@
 }
 
 @media (max-width: 1600px) {
-  .header-li {
-    font-size: 18px;
-    line-height: 22px;
-  }
   .header-logo, .welcome-title, .main-page-title {
     font-size: 44px;
     line-height: 48px;
   }
 
-  //.welcome-title {
-  //  font-size: 44px;
-  //  line-height: 48px;
-  //}
-  .welcome-text, .category-block-link, .footer-text {
+  .category-block-link, .welcome-text, .product-title, .footer-title, .subscribe-message,
+  .footer-title-input, .header-search-input, .header-search-input::placeholder, .bag-container-title {
     font-size: 22px;
     line-height: 26px;
   }
 
-  //.main-page-title {
-  //  font-size: 44px;
-  //  line-height: 48px;
-  //}
-  //.category-block-link {
-  //  font-size: 22px;
-  //  line-height: 26px;
-  //}
+  .header-li, .product-common-text, .footer-text, .header-search-input-result,
+  .bag-container-text, .bag-container-title-items, .accordion-title, .accordion-text {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
 
-  .footer-title {
-    font-size: 26px;
-    line-height: 30px;
+@media (max-width: 1280px) {
+  .header-logo, .welcome-title, .main-page-title {
+    font-size: 40px;
+    line-height: 44px;
   }
 
-  //.footer-text {
-  //  font-size: 22px;
-  //  line-height: 26px;
-  //}
+  .category-block-link, .welcome-text, .product-title, .footer-title, .subscribe-message,
+  .footer-title-input, .header-search-input, .header-search-input::placeholder, .bag-container-title {
+    font-size: 20px;
+    line-height: 24px;
+  }
 
+  .header-li, .product-common-text, .footer-text, .header-search-input-result,
+  .bag-container-text, .bag-container-title-items, .accordion-title, .accordion-text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media (max-width: 950px) {
+  .header-logo, .welcome-title, .main-page-title {
+    font-size: 32px;
+    line-height: 46px;
+  }
 }

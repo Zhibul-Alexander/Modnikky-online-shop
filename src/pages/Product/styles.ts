@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import CIcon from '@coreui/icons-react';
 
+import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
+
 export const Wrapper = styled.div`
   position: relative;
   top: 0;
@@ -10,23 +12,38 @@ export const Wrapper = styled.div`
   max-width: 2880px;
 
   width: 100%;
+
+  margin: 0 auto;
+  padding-bottom: 150px;
+
+  @media (max-width: 1600px) {
+    padding-bottom: 100px;
+  }
+
+  @media (max-width: 1280px) {
+    padding-bottom: 50px;
+  }
 `;
 
-export const GridContainer = styled.div`
-  display: grid;
-  grid-template: 1fr / 1fr 1fr 0.8fr;
-  gap: 0;
+export const ProductContent = styled.div<{ screenType: SCREEN_TYPES }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  border: none;
-  outline: none;
+  flex-direction: ${(props) => props.screenType === SCREEN_TYPES.DESKTOP ? 'row' : 'column'};
+`;
+
+export const ProductImgContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  max-width: 1080px;
+  max-height: 1600px;
 `;
 
 export const ProductImg = styled.img`
   width: 100%;
-  height: auto;
-
-  max-width: 1080px;
-  max-height: 1600px;
+  height: 100%;
 `;
 
 export const ProductInformation = styled.div`
@@ -35,15 +52,41 @@ export const ProductInformation = styled.div`
   align-items: start;
   justify-content: start;
 
-  margin-left: 40px;
+  align-self: start;
+
+  margin: 80px 0 0 40px;
+
+  width: 100%;
+
+  max-width: 600px;
+
+  @media (max-width: 1800px) {
+    margin: 40px 0 0 20px;
+    max-width: 500px;
+  }
+
+  @media (max-width: 1600px) {
+    max-width: 400px;
+  }
+
+  @media (max-width: 1280px) {
+    margin: 20px 0 0 20px;
+
+    max-width: 300px;
+  }
 `;
 
 export const ProductTitle = styled.h3`
-  margin: 60px 0 30px 0;
+  margin: 0 0 10px 0;
+
 `;
 
 export const ProductPrice = styled.span`
-  margin-bottom: 30px;
+  margin: 0 0 30px 0;
+
+  @media (max-width: 1280px) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 export const ProductText = styled.span`
@@ -60,8 +103,18 @@ export const ProductColorSquare = styled.div<{ color: string }>`
 
   background: ${props => props.color};
   border: 1px solid black;
+  border-radius: 5px;
 
   margin-bottom: 30px;
+
+  @media (max-width: 1600px) {
+    width: 34px;
+    height: 34px;
+  }
+
+  @media (max-width: 1280px) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 export const ProductSizeSelect = styled.select`
@@ -70,9 +123,38 @@ export const ProductSizeSelect = styled.select`
 
   border: 3px solid #8C8C8C;
   border-radius: 5px;
+
+  @media (max-width: 1280px) {
+    margin: 0 0 20px 0;
+  }
 `;
 
 export const ProductSizeOption = styled.option`
+`;
+
+export const ProductButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 90px;
+
+  max-width: 300px;
+  margin-bottom: 10px;
+
+  @media (max-width: 1600px) {
+    height: 70px;
+    max-width: 270px;
+
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 1280px) {
+    height: 50px;
+    max-width: 180px;
+
+    margin-bottom: 10px;
+  }
 `;
 
 export const ProductButton = styled.button<{ disabledBg?: boolean }>`
@@ -99,6 +181,21 @@ export const ProductButton = styled.button<{ disabledBg?: boolean }>`
     color: ${({disabledBg}) => (disabledBg ? '' : '#8C8C8C')};
     border: ${({disabledBg}) => (disabledBg ? '' : '3px solid #8C8C8C')};
   }
+
+  @media (max-width: 1600px) {
+    height: 70px;
+    max-width: 220px;
+
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 1280px) {
+    height: 50px;
+    max-width: 150px;
+
+    padding: 5px 10px;
+    margin: 0 10px 20px 0;
+  }
 `;
 
 export const LikeButton = styled.button`
@@ -110,6 +207,20 @@ export const LikeButton = styled.button`
 
   box-sizing: border-box;
   border: none;
+
+  @media (max-width: 1600px) {
+    width: 90px;
+    height: 70px;
+
+    padding: 0 15px;
+  }
+
+  @media (max-width: 1280px) {
+    width: 70px;
+    height: 50px;
+
+    padding: 0 10px;
+  }
 `;
 
 export const LikeIcon = styled(CIcon)`
@@ -149,6 +260,21 @@ export const ProductButtonCalc = styled.button`
     color: #8C8C8C;
     border: 3px solid #8C8C8C;
   }
+
+  @media (max-width: 1600px) {
+    width: 30px;
+    height: 30px;
+
+    padding: 6px 10px;
+  }
+
+  @media (max-width: 1600px) {
+    width: 20px;
+    height: 20px;
+
+    padding: 4px 6px;
+  }
+
 `;
 
 export const ProductButtonRemove = styled.button`
@@ -167,7 +293,7 @@ export const ProductButtonRemove = styled.button`
   text-transform: uppercase;
 
   padding: 11px 16px 5px 16px;
-  margin-bottom: 30px;
+  margin: 0 0 30px 0;
 
   transition: all 150ms ease-in-out;
   color: #FFFFFF;
@@ -176,6 +302,19 @@ export const ProductButtonRemove = styled.button`
     background: #FFFFFF;
     color: #8C8C8C;
     border: 3px solid #8C8C8C;
+  }
+
+  @media (max-width: 1600px) {
+    height: 30px;
+    max-width: 270px;
+
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 1280px) {
+    max-width: 180px;
+
+    margin: 0 0 20px 0;
   }
 `;
 

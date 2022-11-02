@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
 
-  min-width: 320px;
-  max-width: 2880px;
+  z-index: 5;
 
   height: 100vh;
   width: 100vw;
