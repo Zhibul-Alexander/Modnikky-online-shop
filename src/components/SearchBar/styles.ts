@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
   z-index: 5;
 
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 
   overflow-x: hidden;
   overflow-y: hidden;
@@ -23,7 +23,7 @@ export const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: rgb(229, 229, 229);
+  background-color: #8C8C8C;
 
   display: flex;
   align-items: center;
@@ -42,13 +42,27 @@ export const SearchContent = styled.div`
   transition: all 0.5s;
 `;
 
+export const SearchContainer = styled.div`
+  display: flex;
+  align-self: start;
+
+  padding-top: 15%;
+`;
+
 export const SearchIcon = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 
   align-self: center;
 
-  margin-right: 50px;
+  margin: 0 50px 0 0;
+
+  @media (max-width: 950px) {
+    width: 50px;
+    height: 50px;
+
+    margin: 0 30px 0 0;
+  }
 `;
 
 export const SearchInput = styled.input`
@@ -61,9 +75,13 @@ export const SearchInput = styled.input`
   border: 0;
   outline: 0;
 
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
 
   padding: 15px 30px 15px 10px;
+
+  @media (max-width: 950px) {
+    min-width: 400px;
+  }
 `;
 
 export const SearchResult = styled.div`
@@ -73,8 +91,8 @@ export const SearchResult = styled.div`
 
   display: flex;
   flex-direction: column;
-  //align-items: start;
-  //justify-content: start;
+  align-items: start;
+  justify-content: start;
 
   margin-top: 20px;
 
@@ -86,11 +104,13 @@ export const SearchResult = styled.div`
 `;
 
 export const ResultLink = styled(Link)`
-  width: 100%;
-
   text-decoration: none;
+  display: block;
 
-  padding: 10px;
+  width: -webkit-fill-available;
+  text-align: start;
+
+  padding: 10px 15px;
 
   :hover {
     background: #EDE7F0;

@@ -1,15 +1,16 @@
 import React, {useEffect, useRef} from 'react';
 
 import {Burger} from '../Burger/index';
-import {MenuLink, VerticalBurgerMenu} from './styles';
+import {MenuLink, MenuSearch, VerticalBurgerMenu} from './styles';
 import {useOnClickOutside} from '../Hook/index';
 
 export type IMenu = {
   open: boolean;
   setOpen: (v: boolean) => void;
+  setSearchBarVisible: (v: boolean) => void;
 };
 
-export const Menu = ({open, setOpen}: IMenu) => {
+export const Menu = ({open, setOpen, setSearchBarVisible}: IMenu) => {
   const node = useRef<HTMLDivElement>(null);
   const close = () => setOpen(false);
 
@@ -34,32 +35,34 @@ export const Menu = ({open, setOpen}: IMenu) => {
           to="/home"
           onClick={() => close()}
         >
-          Home
+          Modnikky
         </MenuLink>
+        <MenuSearch
+          onClick={() => {
+            close();
+            setSearchBarVisible(true);
+          }}
+        >
+          Search
+        </MenuSearch>
         <MenuLink
-          to="/home"
+          to="/bag"
           onClick={() => close()}
         >
-          New arrivals
+          Bag
         </MenuLink>
         <MenuLink
-          to="/home"
+          to="/favorite"
           onClick={() => close()}
         >
-          Shop
+          Favorite
         </MenuLink>
-        <MenuLink
-          to="/home"
-          onClick={() => close()}
-        >
-          Collections
-        </MenuLink>
-        <MenuLink
-          to="/home"
-          onClick={() => close()}
-        >
-          Sign in
-        </MenuLink>
+        {/*<MenuLink*/}
+        {/*  to="/home"*/}
+        {/*  onClick={() => close()}*/}
+        {/*>*/}
+        {/*  Sign in*/}
+        {/*</MenuLink>*/}
       </VerticalBurgerMenu>
       <Burger open={open} setOpen={setOpen}/>
     </div>

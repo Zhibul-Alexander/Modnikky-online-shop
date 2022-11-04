@@ -1,14 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import WelcomeBackground from '../../../assets/images/MainPage/WelcomeBackground.webp';
 
 import {BackgroundContainer, Button, Content, Text, Title, Wrapper} from './styles';
 
 const WelcomeBlock = () => {
-  const [open, setOpen] = useState<boolean>(false);
-
   return (
-    <Wrapper open={open}>
+    <Wrapper>
       <BackgroundContainer background={WelcomeBackground}>
         <Content>
           <Title className="welcome-title">New collection</Title>

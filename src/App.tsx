@@ -6,6 +6,7 @@ import Loader from './components/Loader/Loader';
 import DefaultLayout from './components/Layout/DefaultLayout';
 
 import {ShoppingCartProvider} from './context/ShoppingCartContext/ShoppingCartContext';
+import {HeaderProvider} from './context/HeaderContext/HeaderContext';
 import {useScreenSizeHook} from './hooks/useScreenSizeHook';
 import {SCREEN_TYPES} from './hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
 
@@ -35,14 +36,16 @@ function App() {
 
   return (
     <ShoppingCartProvider>
-      <Router>
-        <ScrollToTop/>
-        <React.Suspense fallback={loading}>
-          <Routes>
-            <Route path="*" element={<DefaultLayout/>}/>
-          </Routes>
-        </React.Suspense>
-      </Router>
+      <HeaderProvider>
+        <Router>
+          <ScrollToTop/>
+          <React.Suspense fallback={loading}>
+            <Routes>
+              <Route path="*" element={<DefaultLayout/>}/>
+            </Routes>
+          </React.Suspense>
+        </Router>
+      </HeaderProvider>
     </ShoppingCartProvider>
   );
 }

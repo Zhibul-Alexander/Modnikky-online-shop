@@ -23,19 +23,7 @@ export const Wrapper = styled.div<{
   padding: 0 20px;
   box-sizing: border-box;
 
-  background: linear-gradient(180deg,
-  rgba(0, 0, 0, 0.5) 0%,
-  rgba(0, 0, 0, 0.45) 10%,
-  rgba(0, 0, 0, 0.4) 20%,
-  rgba(0, 0, 0, 0.35) 30%,
-  rgba(0, 0, 0, 0.3) 40%,
-  rgba(0, 0, 0, 0.25) 50%,
-  rgba(0, 0, 0, 0.2) 60%,
-  rgba(0, 0, 0, 0.15) 70%,
-  rgba(0, 0, 0, 0.1) 80%,
-  rgba(0, 0, 0, 0.05) 90%,
-  rgba(0, 0, 0, 0) 100%);
-
+  background: ${(props) => (props.open ? 'transparent' : 'linear-gradient(180deg,\n  rgba(0, 0, 0, 0.5) 0%,\n  rgba(0, 0, 0, 0.45) 10%,\n  rgba(0, 0, 0, 0.4) 20%,\n  rgba(0, 0, 0, 0.35) 30%,\n  rgba(0, 0, 0, 0.3) 40%,\n  rgba(0, 0, 0, 0.25) 50%,\n  rgba(0, 0, 0, 0.2) 60%,\n  rgba(0, 0, 0, 0.15) 70%,\n  rgba(0, 0, 0, 0.1) 80%,\n  rgba(0, 0, 0, 0.05) 90%,\n  rgba(0, 0, 0, 0) 100%);')};
   overflow: hidden;
 `;
 
@@ -79,6 +67,21 @@ export const HeaderLi = styled.li<{ marginRight?: number }>`
   text-transform: uppercase;
 
   cursor: pointer;
+
+  padding: 5px 10px;
+
+  transition: all 150ms ease-in-out;
+
+  :hover {
+    transition: all 150ms ease-in-out;
+
+    color: black;
+
+    outline: 0;
+
+    background-color: #eee1f6;
+    box-shadow: 0 0 10px 0 #eee1f6 inset, 0 0 10px 4px #eee1f6;
+  }
 `;
 
 export const HeaderLink = styled(Link)`
@@ -87,6 +90,15 @@ export const HeaderLink = styled(Link)`
 
   text-decoration: none;
   color: #FFFFFF;
+
+  transition: all 150ms ease-in-out;
+  
+  ${HeaderLi}:hover & {
+    color: black;
+
+    transition: all 150ms ease-in-out;
+  }
+
 `;
 
 export const HeaderNavigationBarLIMedium = styled.li<{

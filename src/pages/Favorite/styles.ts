@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
   max-width: 1000px;
 
   margin: 0 auto 50px auto;
-  padding: 0 20px;
+  padding: 110px 20px 0 20px;
 `;
 
 export const BagTitle = styled.h3`

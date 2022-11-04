@@ -13,7 +13,7 @@ import {
   SearchIcon,
   SearchInput,
   SearchResult,
-  ResultLink,
+  ResultLink, SearchContainer,
 } from './styles';
 
 interface ISearchBar {
@@ -59,28 +59,30 @@ const SearchBar = ({placeholder, data, setSearchBarVisible}: ISearchBar) => {
     <Wrapper>
       <BackgroundContainer>
 
-        <SearchIcon>
-          <MCloseIcon onClick={() => {
-            setSearchBarVisible(false);
-          }}
-                      style={{width: '100%', height: '100%', cursor: 'pointer'}}/>
-        </SearchIcon>
+        <SearchContainer>
+          <SearchIcon>
+            <MCloseIcon onClick={() => {
+              setSearchBarVisible(false);
+            }}
+                        style={{width: '100%', height: '100%', cursor: 'pointer', color: 'white'}}/>
+          </SearchIcon>
 
-        <SearchContent>
-          <SearchInput type="text" placeholder={placeholder} value={wordEntered} onChange={handleFilter}
-                       className="header-search-input"/>
-          {filterItems.length !== 0 &&
-            <SearchResult>
-              {filterItems.slice(0, 8).map((item) => {
-                return <ResultLink onClick={() => {
-                  window.scrollTo(0, 0);
-                  setSearchBarVisible(false);
-                }} key={item.id} to={`/product/${item.id}`} className="header-search-input-result">
-                  {item.name}
-                </ResultLink>;
-              })}
-            </SearchResult>}
-        </SearchContent>
+          <SearchContent>
+            <SearchInput type="text" placeholder={placeholder} value={wordEntered} onChange={handleFilter}
+                         className="header-search-input"/>
+            {filterItems.length !== 0 &&
+              <SearchResult>
+                {filterItems.slice(0, 8).map((item) => {
+                  return <ResultLink onClick={() => {
+                    window.scrollTo(0, 0);
+                    setSearchBarVisible(false);
+                  }} key={item.id} to={`/product/${item.id}`} className="header-search-input-result">
+                    {item.name}
+                  </ResultLink>;
+                })}
+              </SearchResult>}
+          </SearchContent>
+        </SearchContainer>
 
 
       </BackgroundContainer>

@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 import {Wrapper} from './styles';
 
 const DefaultLayout = () => {
+
   return (
     <Wrapper>
       <Header/>

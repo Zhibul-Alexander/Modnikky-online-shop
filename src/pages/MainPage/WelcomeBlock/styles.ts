@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div<{ open: boolean }>`
+export const Wrapper = styled.div`
   position: relative;
   top: 0;
   left: 0;
@@ -13,8 +13,6 @@ export const Wrapper = styled.div<{ open: boolean }>`
 
   overflow-x: hidden;
   overflow-y: hidden;
-
-  margin-top: ${({open}) => (open ? '0' : '-110px')};
 `;
 
 export const BackgroundContainer = styled.div<{ background: string }>`

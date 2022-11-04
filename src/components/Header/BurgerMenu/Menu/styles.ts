@@ -19,7 +19,7 @@ export const VerticalBurgerMenu = styled.nav<{ open: boolean }>`
   transition: transform 0.5s ease-in-out;
   transform: ${({open}) => (open ? 'translateX(0)' : 'translateX(100%)')};
 
-  background: rgb(0, 0, 0);
+  background: #8C8C8C;
 
   @media (max-width: 600px) {
     width: 100%;
@@ -27,6 +27,30 @@ export const VerticalBurgerMenu = styled.nav<{ open: boolean }>`
 `;
 
 export const MenuLink = styled(Link)`
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+
+  display: flex;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #ffffff;
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+
+  text-decoration: none;
+
+  margin-bottom: 50px;
+
+  :hover {
+    color: #ffffff;
+  }
+`;
+
+export const MenuSearch = styled.p`
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
