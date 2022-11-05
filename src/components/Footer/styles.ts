@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
 
+  width: 100%;
+
   min-width: 320px;
   max-width: 2880px;
 
@@ -135,6 +137,7 @@ export const GridButton = styled.button<{ buttonDisabled: boolean }>`
 export const MobileInputContainer = styled.div`
   justify-self: center;
   align-self: center;
+
 `;
 
 export const AccordionContainer = styled.div`

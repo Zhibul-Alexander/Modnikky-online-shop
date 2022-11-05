@@ -58,7 +58,9 @@ export const ContainerImg = styled.div`
     margin-right: 20px;
   }
   @media (max-width: 950px) {
-    margin-right: 10px;
+    margin-right: 20px;
+
+    overflow: hidden;
   }
 `;
 

@@ -1,6 +1,6 @@
 import {RefObject, useEffect} from 'react';
 
-export const useOnClickOutside = (
+const useOnClickOutside = (
   ref: RefObject<HTMLDivElement>,
   closeMenu: () => void,
 ) => {
@@ -22,3 +22,5 @@ export const useOnClickOutside = (
     };
   }, [ref, closeMenu]);
 };
+
+export default useOnClickOutside;

@@ -10,8 +10,16 @@ export const Wrapper = styled.div`
 
   max-width: 1000px;
 
-  margin: 0 auto 50px auto;
-  padding: 110px 20px 0 20px;
+  margin: 0 auto;
+  padding: 110px 20px 150px 20px;
+
+  @media (max-width: 1600px) {
+    padding: 110px 20px 100px 20px;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 110px 20px 50px 20px;
+  }
 `;
 
 export const BagTitle = styled.h3`
@@ -30,6 +38,10 @@ export const BagItems = styled.span`
   bottom: 33px;
   left: 320px;
 
+  @media (max-width: 950px) {
+    bottom: 37px;
+    left: 175px;
+  }
 `;
 
 export const DefaultTitle = styled.h3`

@@ -6,7 +6,7 @@ import {useShoppingCart} from '../../context/ShoppingCartContext/ShoppingCartCon
 import API from '../../api';
 import Catalog from '../../types/api/catalog';
 
-import {BagTitle, DefaultTitle, ProductButton, Wrapper} from './styles';
+import {BagItems, BagTitle, DefaultTitle, ProductButton, Wrapper} from './styles';
 
 const Bag: FC = () => {
   const {cartItems, clearAllCart} = useShoppingCart();
@@ -62,12 +62,11 @@ const Bag: FC = () => {
     <Wrapper>
       <BagTitle className="main-page-title">Bag
         {cartItems.length > 0 &&
-          <span className="bag-container-title-items"
-                style={{position: 'absolute', bottom: 33, left: 170}}>
-          {`${cartItems.reduce((total, cartItem) => {
-            return total + cartItem.options.quantity;
-          }, 0)} items`}
-        </span>}
+          <BagItems className="bag-container-title-items">
+            {`${cartItems.reduce((total, cartItem) => {
+              return total + cartItem.options.quantity;
+            }, 0)} items`}
+          </BagItems>}
       </BagTitle>
 
       {cartItems.length > 0 ? (

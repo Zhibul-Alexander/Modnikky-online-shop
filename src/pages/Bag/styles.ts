@@ -10,8 +10,17 @@ export const Wrapper = styled.div`
 
   max-width: 1000px;
 
-  margin: 0 auto 50px auto;
-  padding: 110px 20px 0 20px;
+  margin: 0 auto;
+
+  padding: 110px 20px 150px 20px;
+
+  @media (max-width: 1600px) {
+    padding: 110px 20px 100px 20px;
+  }
+
+  @media (max-width: 1280px) {
+    padding: 110px 20px 50px 20px;
+  }
 `;
 
 export const BagTitle = styled.h3`
@@ -23,6 +32,17 @@ export const BagTitle = styled.h3`
   padding-bottom: 30px;
 
   text-transform: uppercase;
+`;
+
+export const BagItems = styled.span`
+  position: absolute;
+  bottom: 33px;
+  left: 170px;
+
+  @media (max-width: 950px) {
+    bottom: 37px;
+    left: 90px;
+  }
 `;
 
 export const DefaultTitle = styled.h3`
@@ -41,8 +61,7 @@ export const ProductButton = styled.button`
   height: 90px;
 
   text-transform: uppercase;
-
-  margin: 0 0 150px 0;
+  
   padding: 20px 40px;
 
   transition: all 150ms ease-in-out;

@@ -47,6 +47,10 @@ export const SearchContainer = styled.div`
   align-self: start;
 
   padding-top: 15%;
+
+  @media (max-width: 950px) {
+    padding-top: 30%;
+  }
 `;
 
 export const SearchIcon = styled.div`
@@ -62,6 +66,13 @@ export const SearchIcon = styled.div`
     height: 50px;
 
     margin: 0 30px 0 0;
+  }
+
+  @media (max-width: 550px) {
+    width: 35px;
+    height: 35px;
+
+    margin: 0 20px 0 0;
   }
 `;
 
@@ -81,6 +92,10 @@ export const SearchInput = styled.input`
 
   @media (max-width: 950px) {
     min-width: 400px;
+  }
+
+  @media (max-width: 550px) {
+    min-width: 250px;
   }
 `;
 

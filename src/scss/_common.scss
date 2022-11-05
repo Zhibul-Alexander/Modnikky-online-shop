@@ -40,7 +40,15 @@
 }
 
 .card-sale-price {
+  font-family: $secondary-font;
+  font-weight: font-weight('regular');
+  font-style: normal;
+
+  font-size: 24px;
+  line-height: 28px;
+
   color: $sale-1;
+  text-decoration: none;
 }
 
 .border-1 {

@@ -42,12 +42,12 @@ const ProductCard = ({images, price, id, visibleCardPrice = true}: ISaleCard) =>
       <CardPriceContainer>
         {visibleCardPrice ?
           <>
-            <CardSalePrice>
+            <CardSalePrice className="product-common-text">
               {`${Number(price.value) * 0.6 / 10} ${price.currency}`}
             </CardSalePrice>
           </> :
           <>
-            <CardPrice>{`${Number(price.value) / 10} ${price.currency}`}</CardPrice>
+            <CardPrice className="product-common-text">{`${Number(price.value) / 10} ${price.currency}`}</CardPrice>
             <CardSalePrice className="card-sale-price">
               {`${Number(price.value) * 0.6 / 10} ${price.currency}`}
             </CardSalePrice>

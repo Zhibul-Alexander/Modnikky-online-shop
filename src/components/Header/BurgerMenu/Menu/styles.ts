@@ -21,12 +21,16 @@ export const VerticalBurgerMenu = styled.nav<{ open: boolean }>`
 
   background: #8C8C8C;
 
+  padding: 55px 0;
+
   @media (max-width: 600px) {
     width: 100%;
   }
 `;
 
-export const MenuLink = styled(Link)`
+export const MenuLink = styled(Link)<{ marginBottom?: number }>`
+  margin-bottom: ${({marginBottom}) => marginBottom}px;
+
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
@@ -35,7 +39,7 @@ export const MenuLink = styled(Link)`
   text-align: center;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: black;
 
   flex: none;
   order: 0;
@@ -43,10 +47,8 @@ export const MenuLink = styled(Link)`
 
   text-decoration: none;
 
-  margin-bottom: 50px;
-
   :hover {
-    color: #ffffff;
+    color: black;
   }
 `;
 
@@ -59,7 +61,7 @@ export const MenuSearch = styled.p`
   text-align: center;
   text-transform: uppercase;
 
-  color: #ffffff;
+  color: black;
 
   flex: none;
   order: 0;
@@ -67,9 +69,13 @@ export const MenuSearch = styled.p`
 
   text-decoration: none;
 
-  margin-bottom: 50px;
-
   :hover {
-    color: #ffffff;
+    color: black;
   }
+`;
+
+export const BagItems = styled.span`
+  margin: 0 0 0 10px;
+
+  color: black;
 `;

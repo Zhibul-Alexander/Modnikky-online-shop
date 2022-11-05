@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 
 import {SCREEN_TYPES} from '../../hooks/useScreenSizeHook/WindowScreenType/WindowScreenType';
+import CIcon from '@coreui/icons-react';
 
 export const Wrapper = styled.div<{
   open: boolean;
@@ -45,16 +46,16 @@ export const Content = styled.header`
   height: 110px
 `;
 
-export const HeaderUl = styled.ul<{ width: number, height: number, margin?: string, screenType: SCREEN_TYPES, displayWidth: number }>`
+export const HeaderUl = styled.ul<{ width: number, height: number, margin?: string, screenType: SCREEN_TYPES, displayWidth: number, justifyContent?: string }>`
   width: ${({width}) => width}px;
   margin: ${({margin = '0'}) => margin};
 
   display: ${(props) => {
-    return props.screenType === SCREEN_TYPES.MOBILE || (props.displayWidth < 1200 && props.height > 600) ? 'none' : 'flex';
+    return props.screenType === SCREEN_TYPES.MOBILE || (props.displayWidth < 950 && props.height > 600) ? 'none' : 'flex';
   }};
 
   align-items: center;
-  justify-content: space-between;
+  justify-content: ${({justifyContent}) => justifyContent};
 
   list-style: none;
 
@@ -92,7 +93,7 @@ export const HeaderLink = styled(Link)`
   color: #FFFFFF;
 
   transition: all 150ms ease-in-out;
-  
+
   ${HeaderLi}:hover & {
     color: black;
 
@@ -101,153 +102,92 @@ export const HeaderLink = styled(Link)`
 
 `;
 
-export const HeaderNavigationBarLIMedium = styled.li<{
-  width: number;
-  height: number;
-  marginRight: number;
-}>`
-  pointer-events: visible;
+export const LikeLink = styled(Link)<{ marginRight?: number }>`
+  margin-right: ${({marginRight}) => marginRight}px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 30px;
+  height: 30px;
+
+  background: transparent;
+  border: 0;
 
   text-decoration: none;
+  color: #FFFFFF;
 
-  color: #ffffff;
+  transition: all 150ms ease-in-out;
 
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-
-  margin-right: ${(props) => props.marginRight}px;
-
-  cursor: pointer;
-
-  padding: 0px 5px;
+  @media (max-width: 1600px) {
+    width: 24px;
+    height: 24px;
+  }
 `;
 
-export const HeaderNavigationBarLILarge = styled.li<{
-  hoverBg: string;
-  width: number;
-  height: number;
-  marginRight: number;
-}>`
-  pointer-events: visible;
+export const LikeIcon = styled(CIcon)`
+  width: 100%;
+  height: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  outline: 0;
+  transition: all 150ms ease-in-out;
+
+  box-sizing: border-box;
+
+  ${LikeLink}:hover & {
+    transform: scale(1.2);
+
+    color: black;
+
+    transition: all 150ms ease-in-out;
+  }
+`;
+
+export const SearchLink = styled.div<{ marginRight?: number }>`
+  margin-right: ${({marginRight}) => marginRight}px;
+
+  height: 30px;
+
+  display: inline-block;
+
+  background: transparent;
+  border: 0;
 
   text-decoration: none;
+  color: #FFFFFF;
 
-  color: #ffffff;
+  transition: all 150ms ease-in-out;
 
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
+  ${HeaderLi}:hover & {
+    color: black;
 
-  margin-right: ${(props) => props.marginRight}px;
+    transition: all 150ms ease-in-out;
+  }
 
-  cursor: pointer;
-
-  padding: 0px 5px;
-
-  :hover {
-    width: ${(props) => props.width}px;
-    height: ${(props) => props.height}px;
-
-    background: url(${(props) => props.hoverBg}) no-repeat;
-    background-size: cover;
+  @media (max-width: 1600px) {
+    width: 24px;
+    height: 24px;
   }
 `;
 
-// export const HeaderNavigationBarLink = styled(Link)`
-//   text-decoration: none;
-//
-//   color: #ffffff;
-//
-//   transition-duration: 0.6s;
-//
-//   {HeaderNavigationBarLISmall}:hover & {
-//     color: #070e18;
-//     transition-duration: 0.6s;
-//   }
-//
-//   {HeaderNavigationBarLIMedium}:hover & {
-//     color: #070e18;
-//     transition-duration: 0.6s;
-//   }
-//
-//   {HeaderNavigationBarLILarge}:hover & {
-//     color: #070e18;
-//     transition-duration: 0.6s;
-//   }
-// `;
+export const SearchIcon = styled(CIcon)`
+  width: 100%;
+  height: 100%;
 
-export const HeaderNavigationBarAuth = styled.div<{
-  authHoverBg: string;
-  width: number;
-  height: number;
-}>`
-  pointer-events: visible;
+  outline: 0;
 
-  align-items: center;
-  justify-content: center;
+  box-sizing: border-box;
 
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-
-  cursor: pointer;
-
-  :hover {
-    width: ${(props) => props.width}px;
-    height: ${(props) => props.height}px;
-
-    background: url(${(props) => props.authHoverBg}) no-repeat;
-    background-size: cover;
+  ${HeaderLi}:hover & {
+    color: black;
   }
 `;
 
-export const HeaderNavigationBarAuthImg = styled.img<{
-  marginRight: number;
-  width: number;
-  height: number;
-}>`
-  width: ${(props) => props.width}px;
-  height: ${(props) => props.height}px;
-
-  margin-right: ${(props) => props.marginRight}px;
-
-  ${HeaderNavigationBarAuth}:hover & {
-    display: none;
-  }
-`;
-
-export const HeaderNavigationBarAuthImgActive = styled(
-  HeaderNavigationBarAuthImg,
-)`
-  display: none;
-
-  ${HeaderNavigationBarAuth}:hover & {
-    display: block;
-  }
-`;
-
-export const HeaderNavigationBarAuthLink = styled(Link)`
-  text-decoration: none;
-
-  color: #ffffff;
-
-  ${HeaderNavigationBarAuth}:hover & {
-    color: #070e18;
-  }
+export const BagItems = styled.span`
+  margin: 0 0 0 10px;
 `;
 
 export const HeaderBurgerMenu = styled.div<{ screenType: SCREEN_TYPES, width: number, height: number }>`
   pointer-events: visible;
 
   display: ${(props) => {
-    return props.screenType === SCREEN_TYPES.MOBILE || (props.width < 1200 && props.height > 600) ? 'block' : 'none';
+    return props.screenType === SCREEN_TYPES.MOBILE || (props.width < 950 && props.height > 600) ? 'block' : 'none';
   }};
 `;
-
-

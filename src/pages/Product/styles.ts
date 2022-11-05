@@ -54,14 +54,14 @@ export const ProductInformation = styled.div`
 
   align-self: start;
 
-  margin: 80px 0 0 40px;
+  margin: 100px 0 0 40px;
 
   width: 100%;
 
   max-width: 600px;
 
   @media (max-width: 1800px) {
-    margin: 40px 0 0 20px;
+    margin: 100px 0 0 20px;
     max-width: 500px;
   }
 
@@ -70,8 +70,6 @@ export const ProductInformation = styled.div`
   }
 
   @media (max-width: 1280px) {
-    margin: 20px 0 0 20px;
-
     max-width: 300px;
   }
 `;

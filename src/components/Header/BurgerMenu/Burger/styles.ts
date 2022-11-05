@@ -37,7 +37,7 @@ export const BurgerDiv = styled.div<{
   width: ${(props) => props.width}px;
   height: 2px;
   transition: all 0.5s linear;
-  background: #ffffff;
+  background: black;
 
   :first-child {
     transform: ${({open, transform}) =>

@@ -19,6 +19,16 @@ export const Container = styled.div`
   justify-content: start;
 
   margin: 0 0 50px 0;
+
+  @media (max-width: 950px) {
+    margin: 0 0 25px 0;
+  }
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+
+    margin: 0 0 25px 0;
+  }
 `;
 
 export const Content = styled.div`
@@ -29,10 +39,25 @@ export const Content = styled.div`
 `;
 
 export const ContainerImg = styled.div`
-  width: 320px;
-  height: 460px;
+  width: 100%;
+  height: 100%;
+
+  max-width: 320px;
+  max-height: 460px;
 
   margin-right: 40px;
+
+  @media (max-width: 1600px) {
+    margin-right: 30px;
+  }
+  @media (max-width: 1280px) {
+    margin-right: 20px;
+  }
+  @media (max-width: 950px) {
+    margin-right: 20px;
+
+    overflow: hidden;
+  }
 `;
 
 export const Img = styled.img`
@@ -55,7 +80,7 @@ export const ContainerText = styled.p`
 export const RemoveButton = styled.button`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   align-self: end;
 

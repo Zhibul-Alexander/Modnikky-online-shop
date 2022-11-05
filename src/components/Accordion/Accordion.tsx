@@ -18,9 +18,9 @@ const Accordion = ({title, text}: IAccordion) => {
       <HeaderContainer className="accordion-title" onClick={() => setIsActive(!isActive)}>
         {isActive ?
           <CIcon icon={cilMinus}
-                 style={{width: '20px', height: '20px', marginBottom: '6px'}}/> :
+                 style={{width: '20px', height: '20px'}}/> :
           <CIcon icon={cilPlus}
-                 style={{width: '20px', height: '20px', marginBottom: '6px'}}/>}
+                 style={{width: '20px', height: '20px'}}/>}
         <HeaderTitle>{title}</HeaderTitle>
       </HeaderContainer>
       {isActive && <Text className="accordion-text">{text}</Text>}

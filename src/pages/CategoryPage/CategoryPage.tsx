@@ -6,7 +6,7 @@ import ProductCard from '../../components/ProductCard/ProductCard';
 import API from '../../api';
 import Catalog from '../../types/api/catalog';
 
-import {GridContainer, Wrapper} from './styles';
+import {ContainerTitle, GridContainer, Wrapper} from './styles';
 
 const CategoryPage = () => {
   const {category} = useParams();
@@ -42,7 +42,9 @@ const CategoryPage = () => {
 
   return (
     <Wrapper>
-      CategoryPage
+      <ContainerTitle className="product-title">
+        {category}
+      </ContainerTitle>
       <GridContainer>
         {saleCards.map(({images, price, id}) => (
           <ProductCard images={images[1]} price={price} id={id} key={id}/>

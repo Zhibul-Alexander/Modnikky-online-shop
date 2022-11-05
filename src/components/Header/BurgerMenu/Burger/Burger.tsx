@@ -7,7 +7,7 @@ export type Props = {
   setOpen: (v: boolean) => void;
 };
 
-export const Burger = (props: Props) => {
+const Burger = (props: Props) => {
 
   return (
     <BurgerContainer
@@ -34,3 +34,5 @@ export const Burger = (props: Props) => {
     </BurgerContainer>
   );
 };
+
+export default Burger
