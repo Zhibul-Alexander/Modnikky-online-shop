@@ -71,11 +71,7 @@ export const HeaderLi = styled.li<{ marginRight?: number }>`
 
   padding: 5px 10px;
 
-  transition: all 150ms ease-in-out;
-
   :hover {
-    transition: all 150ms ease-in-out;
-
     color: black;
 
     outline: 0;
@@ -92,60 +88,59 @@ export const HeaderLink = styled(Link)`
   text-decoration: none;
   color: #FFFFFF;
 
-  transition: all 150ms ease-in-out;
+  transition: all 300ms ease-in-out;
 
   ${HeaderLi}:hover & {
     color: black;
 
-    transition: all 150ms ease-in-out;
+    transition: all 300ms ease-in-out;
   }
-
 `;
 
 export const LikeLink = styled(Link)<{ marginRight?: number }>`
   margin-right: ${({marginRight}) => marginRight}px;
 
-  width: 30px;
-  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   background: transparent;
   border: 0;
 
   text-decoration: none;
   color: #FFFFFF;
-
-  transition: all 150ms ease-in-out;
 
   @media (max-width: 1600px) {
     width: 24px;
     height: 24px;
   }
+
+  transition: all 300ms ease-in-out;
+
+  ${HeaderLi}:hover & {
+    color: black;
+
+    transition: all 300ms ease-in-out;
+  }
 `;
 
 export const LikeIcon = styled(CIcon)`
-  width: 100%;
-  height: 100%;
+  width: 30px;
+  height: 30px;
 
   outline: 0;
-  transition: all 150ms ease-in-out;
 
   box-sizing: border-box;
-
-  ${LikeLink}:hover & {
-    transform: scale(1.2);
-
-    color: black;
-
-    transition: all 150ms ease-in-out;
-  }
 `;
 
 export const SearchLink = styled.div<{ marginRight?: number }>`
   margin-right: ${({marginRight}) => marginRight}px;
 
-  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  display: inline-block;
+  height: 30px;
 
   background: transparent;
   border: 0;
@@ -153,12 +148,12 @@ export const SearchLink = styled.div<{ marginRight?: number }>`
   text-decoration: none;
   color: #FFFFFF;
 
-  transition: all 150ms ease-in-out;
+  transition: all 300ms ease-in-out;
 
   ${HeaderLi}:hover & {
     color: black;
 
-    transition: all 150ms ease-in-out;
+    transition: all 300ms ease-in-out;
   }
 
   @media (max-width: 1600px) {

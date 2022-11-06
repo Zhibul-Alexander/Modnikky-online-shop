@@ -17,7 +17,7 @@ export type IMenu = {
 const Menu = ({open, setOpen, setSearchBarVisible}: IMenu) => {
   const node = useRef<HTMLDivElement>(null);
   const close = () => setOpen(false);
-  const {cartItems} = useShoppingCart();
+  const {cartItems, favoritesItems} = useShoppingCart();
 
   let {width = 320} = window;
 
@@ -72,14 +72,16 @@ const Menu = ({open, setOpen, setSearchBarVisible}: IMenu) => {
         </div>
 
         <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
-          <CIcon icon={cilHeart} style={{color: 'black', width: '24px', height: '24px', marginRight: '10px'}}/>
           <MenuLink
             to="/favorite"
             onClick={() => close()}
           >
-
-            Favorite
+            <CIcon icon={cilHeart} style={{color: 'black', width: '24px', height: '24px'}}/>
           </MenuLink>
+          {favoritesItems.length > 0 &&
+            <BagItems>
+              {`(${favoritesItems.length})`}
+            </BagItems>}
         </div>
         {/*<MenuLink*/}
         {/*  to="/home"*/}
