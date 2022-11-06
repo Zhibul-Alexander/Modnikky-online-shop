@@ -79,6 +79,10 @@ const Product = () => {
   }, []);
 
   useEffect(() => {
+    getData().catch(console.error);
+  }, [productId]);
+
+  useEffect(() => {
     product.forEach(item => setProductIdNumber((item.id)));
   }, [product]);
 
@@ -101,7 +105,7 @@ const Product = () => {
             <ProductImgContainer>
               <ProductImg src={images[1]}/>
             </ProductImgContainer>}
-          <ProductInformation>
+          <ProductInformation screenType={screenType}>
             <ProductTitle className="product-title">{name}</ProductTitle>
             <ProductPrice
               className="product-common-text">{`${Number(price.value) * 0.6 / 10} ${price.currency}`}</ProductPrice>
@@ -159,7 +163,7 @@ const Product = () => {
               </>)}
 
             <Accordion title={'Product description'} text={description}/>
-            
+
           </ProductInformation>
         </ProductContent>
       ))}

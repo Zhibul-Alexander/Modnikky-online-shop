@@ -61,13 +61,14 @@ const Header = () => {
                 </BagItems>}
             </HeaderLi>
 
-            <LikeLink marginRight={30} to="/favorite" className="header-li">
+            <LikeLink
+              to="/favorite" className="header-li">
               <LikeIcon icon={cilHeart}/>
             </LikeLink>
 
-            <HeaderLi className="header-li">
-              Sign in
-            </HeaderLi>
+            {/*<HeaderLi className="header-li">*/}
+            {/*  Sign in*/}
+            {/*</HeaderLi>*/}
           </HeaderUl>
 
           <HeaderBurgerMenu screenType={screenType} width={width} height={height}>

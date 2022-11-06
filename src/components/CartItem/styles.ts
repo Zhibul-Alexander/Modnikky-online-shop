@@ -42,8 +42,8 @@ export const ContainerImg = styled.div`
   width: 100%;
   height: 100%;
 
-  max-width: 320px;
-  max-height: 460px;
+  //max-width: 320px;
+  //max-height: 460px;
 
   margin-right: 40px;
 
@@ -57,6 +57,10 @@ export const ContainerImg = styled.div`
     margin-right: 20px;
 
     overflow: hidden;
+  }
+
+  @media (max-width: 550px) {
+    margin-right: 0;
   }
 `;
 

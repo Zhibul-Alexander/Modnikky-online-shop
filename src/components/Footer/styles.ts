@@ -5,8 +5,6 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
 
-  width: 100%;
-
   min-width: 320px;
   max-width: 2880px;
 

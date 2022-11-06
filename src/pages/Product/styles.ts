@@ -46,7 +46,7 @@ export const ProductImg = styled.img`
   height: 100%;
 `;
 
-export const ProductInformation = styled.div`
+export const ProductInformation = styled.div<{ screenType: SCREEN_TYPES }>`
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -54,14 +54,13 @@ export const ProductInformation = styled.div`
 
   align-self: start;
 
-  margin: 100px 0 0 40px;
+  margin: ${(props) => props.screenType === SCREEN_TYPES.DESKTOP ? '100px 0 0 30px' : '40px 0 0 20px'};
 
   width: 100%;
 
   max-width: 600px;
 
   @media (max-width: 1800px) {
-    margin: 100px 0 0 20px;
     max-width: 500px;
   }
 

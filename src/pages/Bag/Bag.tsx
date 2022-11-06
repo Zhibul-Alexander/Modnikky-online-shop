@@ -32,7 +32,7 @@ const Bag: FC = () => {
       const getSaleCards = await API.bag.checkoutCart(allIds);
 
       if (getSaleCards.status === 200) {
-        setCheckoutMessage('Thank you for ordering, your items are on their way');
+        setCheckoutMessage('Thank you for ordering, your items are on their way!');
 
         setTimeout(() => {
           localStorage.clear();
@@ -82,7 +82,7 @@ const Bag: FC = () => {
             </p>
             <p style={{textAlign: 'center'}}>
               <ProductButton onClick={checkout} className="product-common-text">Proceed to checkout</ProductButton>
-              <span>{checkoutMessage}</span>
+              <p className="accordion-title" style={{textAlign: 'center', margin: '50px 0 0 0'}}>{checkoutMessage}</p>
             </p>
           </>
         ) :

@@ -5,9 +5,6 @@ export const Wrapper = styled.div`
   top: 0;
   left: 0;
 
-  width: 100%;
-  height: 100%;
-
   max-width: 1000px;
 
   margin: 0 auto;
@@ -61,7 +58,7 @@ export const ProductButton = styled.button`
   height: 90px;
 
   text-transform: uppercase;
-  
+
   padding: 20px 40px;
 
   transition: all 150ms ease-in-out;

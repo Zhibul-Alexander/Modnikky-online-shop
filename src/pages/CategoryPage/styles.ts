@@ -8,8 +8,6 @@ export const Wrapper = styled.div`
   min-width: 320px;
   max-width: 2880px;
 
-  width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;

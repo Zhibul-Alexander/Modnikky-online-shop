@@ -71,7 +71,7 @@ const Menu = ({open, setOpen, setSearchBarVisible}: IMenu) => {
             </BagItems>}
         </div>
 
-        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '50px'}}>
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <CIcon icon={cilHeart} style={{color: 'black', width: '24px', height: '24px', marginRight: '10px'}}/>
           <MenuLink
             to="/favorite"
@@ -81,12 +81,12 @@ const Menu = ({open, setOpen, setSearchBarVisible}: IMenu) => {
             Favorite
           </MenuLink>
         </div>
-        <MenuLink
-          to="/home"
-          onClick={() => close()}
-        >
-          Sign in
-        </MenuLink>
+        {/*<MenuLink*/}
+        {/*  to="/home"*/}
+        {/*  onClick={() => close()}*/}
+        {/*>*/}
+        {/*  Sign in*/}
+        {/*</MenuLink>*/}
       </VerticalBurgerMenu>
       <Burger open={open} setOpen={setOpen}/>
     </div>
